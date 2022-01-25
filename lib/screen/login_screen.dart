@@ -1,3 +1,5 @@
+import 'package:anun_partner/Constant/custom_color.dart';
+import 'package:anun_partner/Constant/reusable_textfield.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatelessWidget {
@@ -17,59 +19,32 @@ class Login extends StatelessWidget {
             height: 100,
           ),
           Column(
-            children: [
+            children: const [
               TextField(
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.people_alt_outlined,color: Color(0xFFFAC245),),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide:
-                        const BorderSide(color: Color(0xFFFAC245), width: 2.0),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide:
-                        const BorderSide(color: Color(0xFFFAC245), width: 2.0),
-                  ),
-                  label: Text('Username',style: TextStyle(
-                    color: Colors.red,
-                    fontFamily: 'Allerta',
-                  ),),
-                ),
+                decoration: UsernameTextFieldDecoration,
               ),
               SizedBox(
                 height: 20,
               ),
               TextField(
-                decoration: InputDecoration(
-                  suffixIcon: Icon(Icons.visibility_off_outlined,color: Color(0xFFFAC245),),
-                  prefixIcon: Icon(Icons.password_outlined,color: Color(0xFFFAC245),),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide:
-                    const BorderSide(color: Color(0xFFFAC245), width: 2.0),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide:
-                    const BorderSide(color: Color(0xFFFAC245), width: 2.0),
-                  ),
-                  label: Text('Password',style: TextStyle(
-                    color: Colors.red,
-                    fontFamily: 'Allerta',
-                  ),),
-                ),
+                decoration: PasswordTextFieldDecoration,
               ),
             ],
           ),
           MaterialButton(
             height: 40.0,
             minWidth: double.infinity,
-            color: const Color(0xFFFAC245),
-            textColor: Colors.black,
-            child: Text("Sign In",style: TextStyle(
-              fontFamily: "Allerta",
-            ),),
+            color: green,
+            textColor: black,
+            child: Text(
+              "Sign In",
+              style: TextStyle(
+                fontFamily: "Allerta",
+              ),
+            ),
             onPressed: () => {},
-            splashColor: Colors.redAccent,
+            splashColor: read,
           )
-
         ],
       ),
     ));
