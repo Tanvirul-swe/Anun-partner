@@ -8,15 +8,15 @@ const UsernameTextFieldDecoration = InputDecoration(
     color: green,
   ),
   focusedBorder: OutlineInputBorder(
-    borderSide: const BorderSide(color: Color(0xFFFAC245), width: 2.0),
+    borderSide: BorderSide(color: Color(0xFFFAC245), width: 2.0),
   ),
   enabledBorder: OutlineInputBorder(
-    borderSide: const BorderSide(color: Color(0xFFFAC245), width: 2.0),
+    borderSide:  BorderSide(color: Color(0xFFFAC245), width: 2.0),
   ),
   label: Text(
     'Username',
     style: TextStyle(
-      color: Colors.red,
+      color: Colors.black,
       fontFamily: 'Allerta',
     ),
   ),
@@ -32,16 +32,22 @@ const PasswordTextFieldDecoration = InputDecoration(
     color: Color(0xFFFAC245),
   ),
   focusedBorder: OutlineInputBorder(
-    borderSide: const BorderSide(color: Color(0xFFFAC245), width: 2.0),
+    borderSide:  BorderSide(color: Color(0xFFFAC245), width: 2.0),
   ),
   enabledBorder: OutlineInputBorder(
-    borderSide: const BorderSide(color: Color(0xFFFAC245), width: 2.0),
+    borderSide:  BorderSide(color: Color(0xFFFAC245), width: 2.0),
   ),
   label: Text(
     'Password',
     style: TextStyle(
-      color: Colors.red,
+      color: Colors.black,
       fontFamily: 'Allerta',
     ),
   ),
+);
+
+const Ktextstyle = TextStyle(
+  color: black,
+  fontFamily: 'Allerta',
+  fontSize: 18,
 );

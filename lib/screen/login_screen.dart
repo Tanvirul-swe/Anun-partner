@@ -1,5 +1,6 @@
 import 'package:anun_partner/Constant/custom_color.dart';
 import 'package:anun_partner/Constant/reusable_textfield.dart';
+import 'package:anun_partner/screen/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatelessWidget {
@@ -36,13 +37,16 @@ class Login extends StatelessWidget {
             minWidth: double.infinity,
             color: green,
             textColor: black,
-            child: Text(
+            child: const Text(
               "Sign In",
               style: TextStyle(
                 fontFamily: "Allerta",
+                fontSize: 17,
               ),
             ),
-            onPressed: () => {},
+            onPressed: () => {
+              Navigator.push( context, MaterialPageRoute(builder: (context)=>const Home()))
+            },
             splashColor: read,
           )
         ],
