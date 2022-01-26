@@ -1,5 +1,6 @@
 import 'package:anun_partner/Constant/custom_color.dart';
 import 'package:anun_partner/Constant/reusable_textfield.dart';
+import 'package:anun_partner/screen/all_order.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
@@ -16,40 +17,40 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-          children:[
+      body: Column(children: [
         Expanded(
             child: InkWell(
-              onTap: (){
-                print('Clicked');
-              },
-              child: Container(
-          width: double.infinity,
-          decoration: BoxDecoration(
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const AllOrder()));
+          },
+          child: Container(
+            width: double.infinity,
+            decoration: const BoxDecoration(
                 gradient: LinearGradient(
                     begin: Alignment.topRight,
                     end: Alignment.bottomLeft,
                     colors: [Color(0xFFFCE79E), Color(0xFFFEF6DF)])),
-          child: Column(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   'New Order Alart',
                   style: Ktextstyle.copyWith(color: Colors.green),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
-                Text(
+                const Text(
                   'You have new order tap screen anywhere',
                   style: TextStyle(
                     fontFamily: 'Allerta',
                   ),
                 ),
               ],
+            ),
           ),
-        ),
-            )),
+        )),
         Container(
           height: 60,
           color: green,
