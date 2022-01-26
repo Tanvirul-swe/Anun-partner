@@ -68,6 +68,7 @@ class AllOrder extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     'Order ID : 101',
@@ -77,7 +78,12 @@ class AllOrder extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  ElevatedButton(onPressed: () {}, child: Text('Reject')),
+                  ElevatedButton(
+                      onPressed: () {},
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.red),
+                      ),
+                      child: Text('Reject')),
                 ],
               ),
               SizedBox(
@@ -158,6 +164,30 @@ class AllOrder extends StatelessWidget {
                   alignment: Alignment.topRight,
                   child: Text(
                     'Total : 450 TK',
+                    style: TextStyle(
+                      fontFamily: 'Allerta',
+                      fontSize: 17,
+                    ),
+                  ),
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(color: Colors.green, spreadRadius: 1),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Container(
+                width: double.infinity,
+                padding: EdgeInsets.all(10),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    'Auto reject will be within',
                     style: TextStyle(
                       fontFamily: 'Allerta',
                       fontSize: 17,
