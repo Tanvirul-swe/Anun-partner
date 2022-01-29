@@ -1,5 +1,6 @@
 import 'package:anun_partner/Constant/custom_color.dart';
 import 'package:anun_partner/Constant/reusable_textfield.dart';
+import 'package:anun_partner/CustomWidgets/custom_drawer.dart';
 import 'package:anun_partner/CustomWidgets/custom_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
@@ -19,6 +20,7 @@ class _DeliverdScreenState extends State<DeliverdScreen> {
     final GlobalKey<ScaffoldState> _key = GlobalKey(); // Create a key
 
     return Scaffold(
+      key: _key,
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
@@ -83,6 +85,7 @@ class _DeliverdScreenState extends State<DeliverdScreen> {
               ),
             )),
       ),
+      drawer: CustomDrawer(),
       body: SingleChildScrollView(
           physics: const ScrollPhysics(),
           child: Padding(
@@ -155,6 +158,16 @@ class _DeliverdScreenState extends State<DeliverdScreen> {
                                 ],
                               );
                             }),
+                      ),
+                      const Align(
+                        alignment: Alignment.topLeft,
+                          child: Text('Special Instructions',style: TextStyle(
+                            fontFamily: 'Allerta',
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                          ),)),
+                      const SizedBox(
+                        height: 5,
                       ),
                       Container(
                         width: double.infinity,
