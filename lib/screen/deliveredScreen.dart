@@ -1,140 +1,88 @@
-import 'dart:async';
-
 import 'package:anun_partner/Constant/custom_color.dart';
 import 'package:anun_partner/Constant/reusable_textfield.dart';
 import 'package:anun_partner/CustomWidgets/custom_widgets.dart';
-import 'package:anun_partner/screen/deliveredScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
-class AllOrder extends StatefulWidget {
-  const AllOrder({Key? key}) : super(key: key);
+class DeliverdScreen extends StatefulWidget {
+  const DeliverdScreen({Key? key}) : super(key: key);
 
   @override
-  State<AllOrder> createState() => _AllOrderState();
+  _DeliverdScreenState createState() => _DeliverdScreenState();
 }
 
-
-
-class _AllOrderState extends State<AllOrder>
-    with SingleTickerProviderStateMixin {
-  bool status = false;
-  static const countdownDuration = Duration(seconds: 30);
-  double value = 0;
-  @override
-  void initState() {
-    startTimer();
-    reset();
-
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-
-    super.dispose();
-  }
-
-  void reset() {
-    if (isCountdown) {
-      setState(() {
-        duration = countdownDuration;
-      });
-    } else {
-      setState(() {
-        duration = const Duration();
-      });
-    }
-  }
-
-  void startTimer() {
-    timer = Timer.periodic(const Duration(seconds: 1), (_) => addTime());
-  }
-
-  void addTime() {
-    final addSeconds = isCountdown ? -1 : 1;
-    setState(() {
-      final seconds = duration.inSeconds + addSeconds;
-      if (seconds < 0) {
-        timer?.cancel();
-      } else {
-        duration = Duration(seconds: seconds);
-      }
-    });
-  }
-
+class _DeliverdScreenState extends State<DeliverdScreen> {
   bool check = false;
-  final GlobalKey<ScaffoldState> _key = GlobalKey(); // Create a key
-
+  bool status = false;
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<ScaffoldState> _key = GlobalKey(); // Create a key
+
     return Scaffold(
-      key: _key,
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
         automaticallyImplyLeading: false,
         flexibleSpace: SafeArea(
             child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Center(
-            child: Expanded(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: MaterialButton(
-                      height: double.infinity,
-                      minWidth: double.infinity,
-                      color: check == false ? green : Color(0xFFedf2f8),
-                      textColor: black,
-                      child: const Text(
-                        "Incoming(3)",
-                        style: TextStyle(
-                          fontFamily: "Allerta",
-                          fontSize: 17,
+              padding: const EdgeInsets.all(8.0),
+              child: Center(
+                child: Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: MaterialButton(
+                          height: double.infinity,
+                          minWidth: double.infinity,
+                          color: check == false ? green : Color(0xFFedf2f8),
+                          textColor: black,
+                          child: const Text(
+                            "Incoming(3)",
+                            style: TextStyle(
+                              fontFamily: "Allerta",
+                              fontSize: 17,
+                            ),
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              check = false;
+                            });
+                          },
+                          splashColor: read,
                         ),
                       ),
-                      onPressed: () {
-                        setState(() {
-                          check = false;
-                        });
-                      },
-                      splashColor: read,
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  Expanded(
-                    child: MaterialButton(
-                      height: double.infinity,
-                      minWidth: double.infinity,
-                      color: check == true ? green : Color(0xFFedf2f8),
-                      textColor: black,
-                      child: const Text(
-                        "Ongoing(6)",
-                        style: TextStyle(
-                          fontFamily: "Allerta",
-                          fontSize: 17,
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      Expanded(
+                        child: MaterialButton(
+                          height: double.infinity,
+                          minWidth: double.infinity,
+                          color: check == true ? green : Color(0xFFedf2f8),
+                          textColor: black,
+                          child: const Text(
+                            "Ongoing(6)",
+                            style: TextStyle(
+                              fontFamily: "Allerta",
+                              fontSize: 17,
+                            ),
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              check = true;
+                            });
+                          },
+                          splashColor: read,
                         ),
                       ),
-                      onPressed: () {
-                        setState(() {
-                          check = true;
-                        });
-                      },
-                      splashColor: read,
-                    ),
+                    ],
                   ),
-                ],
+                ),
               ),
-            ),
-          ),
-        )),
+            )),
       ),
-      drawer: Drawer(),
       body: SingleChildScrollView(
           physics: const ScrollPhysics(),
           child: Padding(
@@ -145,8 +93,8 @@ class _AllOrderState extends State<AllOrder>
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text(
+                        children:const [
+                           Text(
                             'Order ID : 101',
                             style: TextStyle(
                               fontFamily: 'Allerta',
@@ -154,13 +102,7 @@ class _AllOrderState extends State<AllOrder>
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          ElevatedButton(
-                              onPressed: () {},
-                              style: ButtonStyle(
-                                backgroundColor:
-                                    MaterialStateProperty.all(Colors.red),
-                              ),
-                              child: const Text('Reject')),
+
                         ],
                       ),
                       const SizedBox(
@@ -261,59 +203,65 @@ class _AllOrderState extends State<AllOrder>
                       ),
                       Container(
                         width: double.infinity,
-                        padding: const EdgeInsets.all(10),
-                        child: const Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            'Auto reject will be within',
-                            style: TextStyle(
-                              fontFamily: 'Allerta',
-                              fontSize: 17,
-                            ),
-                          ),
-                        ),
+                        height: 180,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(20),
                           color: Colors.white,
                           boxShadow: const [
                             BoxShadow(color: Colors.green, spreadRadius: 1),
                           ],
                         ),
+                        child: Column(
+                          children: [
+                            SizedBox(height: 10,),
+                          const CircleAvatar(
+                            radius: 40,
+                            backgroundColor: green,
+                            child: CircleAvatar(
+                              radius: 37,
+                              backgroundColor: Colors.white,
+                              backgroundImage: NetworkImage('https://www.pngarts.com/files/5/Sadio-Mane-PNG-Download-Image.png'),
+                            ),
+
+                          ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text('Your Rider',style: TextStyle(
+                              fontFamily: 'Allerta',
+                              fontSize: 18,
+                            ),),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text('Tamal Dev',style: TextStyle(
+                                  fontFamily: 'Allerta',
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                ),),
+                                Icon(Icons.call),
+                              ],
+                            )
+                          ],
+                        ),
                       ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      TweenAnimationBuilder(
-                          tween: Tween(begin: 0.0, end: 1.0),
-                          duration: const Duration(seconds: 30),
-                          builder: (context, double value, _) => SizedBox(
-                                child: LinearProgressIndicator(
-                                  value: value,
-                                  backgroundColor: Colors.grey,
-                                  color: green,
-                                  minHeight: 5,
-                                ),
-                              )),
-                      Container(
-                        height: 125,
-                        width: double.infinity,
-                        child: Center(child: buildTime()),
-                      ),
+                      SizedBox(height: 10,),
                       MaterialButton(
                         height: 40.0,
                         minWidth: double.infinity,
                         color: green,
                         textColor: black,
                         child: const Text(
-                          "Accept Order",
+                          "Delivered to Rider",
                           style: TextStyle(
                             fontFamily: "Allerta",
                             fontSize: 17,
                           ),
                         ),
-                        onPressed: () => {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>const DeliverdScreen()))
-                        },
+                        onPressed: () => {},
                         splashColor: read,
                       ),
                       const SizedBox(
