@@ -13,6 +13,10 @@ class _MenuManagementState extends State<MenuManagement> {
   bool isActiveSwitched = true;
   bool isInavtiveSwitch = true;
   bool isActive = true;
+  List<bool> temvalue = [
+    true,
+    false,
+  ];
 
   @override
   Widget build(BuildContext context) {
