@@ -1,6 +1,5 @@
 import 'package:anun_partner/Constant/custom_color.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_switch/flutter_switch.dart';
 
 class MenuManagement extends StatefulWidget {
   const MenuManagement({Key? key}) : super(key: key);
@@ -10,9 +9,10 @@ class MenuManagement extends StatefulWidget {
 }
 
 class _MenuManagementState extends State<MenuManagement> {
-
-  bool check = false;
   bool status = false;
+  bool isActiveSwitched = true;
+  bool isInavtiveSwitch = true;
+  bool isActive = true;
 
   @override
   Widget build(BuildContext context) {
@@ -22,86 +22,117 @@ class _MenuManagementState extends State<MenuManagement> {
         elevation: 0,
         automaticallyImplyLeading: false,
         flexibleSpace: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Center(
-                child: Expanded(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: MaterialButton(
-                          height: double.infinity,
-                          minWidth: double.infinity,
-                          color: check == false ? green : Color(0xFFedf2f8),
-                          textColor: black,
-                          child: const Text(
-                            "Active Items",
-                            style: TextStyle(
-                              fontFamily: "Allerta",
-                              fontSize: 17,
-                            ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Center(
+              child: Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: MaterialButton(
+                        height: double.infinity,
+                        minWidth: double.infinity,
+                        color: isActive == false ? green : Color(0xFFedf2f8),
+                        textColor: black,
+                        child: const Text(
+                          "Active Items",
+                          style: TextStyle(
+                            fontFamily: "Allerta",
+                            fontSize: 17,
                           ),
-                          onPressed: () {
-                            setState(() {
-                              check = false;
-                            });
-                          },
-                          splashColor: read,
                         ),
+                        onPressed: () {
+                          setState(() {
+                            isActive = false;
+                          });
+                        },
+                        splashColor: read,
                       ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      Expanded(
-                        child: MaterialButton(
-                          height: double.infinity,
-                          minWidth: double.infinity,
-                          color: check == true ? green : Color(0xFFedf2f8),
-                          textColor: black,
-                          child: const Text(
-                            "Inactive Items",
-                            style: TextStyle(
-                              fontFamily: "Allerta",
-                              fontSize: 17,
-                            ),
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Expanded(
+                      child: MaterialButton(
+                        height: double.infinity,
+                        minWidth: double.infinity,
+                        color: isActive == true ? green : Color(0xFFedf2f8),
+                        textColor: black,
+                        child: const Text(
+                          "Inactive Items",
+                          style: TextStyle(
+                            fontFamily: "Allerta",
+                            fontSize: 17,
                           ),
-                          onPressed: () {
-                            setState(() {
-                              check = true;
-                            });
-                          },
-                          splashColor: read,
                         ),
+                        onPressed: () {
+                          setState(() {
+                            isActive = true;
+                          });
+                        },
+                        splashColor: read,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
-            ),),
+            ),
+          ),
+        ),
       ),
-       body: ListView.builder(
-           itemCount: 10,
-           itemBuilder: (BuildContext context, int index){
-         return ListTile(
-           leading: Image.asset('Assets/burger.jpg'),
-           title: Text('Chicken Burger'),
-           subtitle: Text('350 TK'),
-           trailing: FlutterSwitch(
-             width: 55.0,
-             height: 25.0,
-             valueFontSize: 12.0,
-             toggleSize: 18.0,
-             value: status,
-             onToggle: (val) {
-               setState(() {
-                 status = val;
-               });
-             },
-           ),
-         );
-       }),
+      body: isActive == false
+          ? ListView.separated(
+              itemCount: 10,
+              itemBuilder: (BuildContext context, int index) {
+                return ListTile(
+                    leading: Image.asset('Assets/burger.jpg'),
+                    title: Text('Chicken Burger'),
+                    subtitle: Text('350 TK'),
+                    trailing: Switch(
+                      value: isActiveSwitched,
+                      activeColor: Colors.pink,
+                      activeTrackColor: green,
+                      onChanged: (value) {
+                        setState(() {
+                          isActiveSwitched = value;
+                        });
+                      },
+                    ));
+              },
+              separatorBuilder: (BuildContext context, int index) {
+                return const Divider(
+                  height: 5,
+                  color: green,
+                );
+              },
+            )
+          : ListView.separated(
+              itemCount: 10,
+              itemBuilder: (BuildContext context, int index) {
+                return ListTile(
+                    leading: Image.asset('Assets/burger.jpg'),
+                    title: Text('Chicken Burger'),
+                    subtitle: Text('350 TK'),
+                    trailing: Switch(
+                      value: isInavtiveSwitch,
+                      activeColor: Colors.pink,
+                      activeTrackColor: green,
+                      onChanged: (value) {
+                        setState(() {
+                          isInavtiveSwitch = value;
+                        });
+                      },
+                    ));
+              },
+              separatorBuilder: (BuildContext context, int index) {
+                return Divider(
+                  height: 5,
+                  color: green,
+                );
+              },
+            ),
     );
   }
 }
