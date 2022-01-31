@@ -1,6 +1,8 @@
 import 'package:anun_partner/Constant/custom_color.dart';
 import 'package:flutter/material.dart';
 
+enum SingingCharacter { lafayette, jefferson }
+
 class MenuManagement extends StatefulWidget {
   const MenuManagement({Key? key}) : super(key: key);
 
@@ -17,6 +19,77 @@ class _MenuManagementState extends State<MenuManagement> {
     true,
     false,
   ];
+  bool _value = false;
+  int val = -1;
+  SingingCharacter? _character = SingingCharacter.lafayette;
+  dialog(BuildContext context) async {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        String contentText = "Content of Dialog";
+        return StatefulBuilder(
+          builder: (context, setState) {
+            return AlertDialog(
+              title: Text("Select product inactive duration"),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  ListTile(
+                    title: const Text(
+                      'Permanently',
+                      style: TextStyle(
+                        fontFamily: 'Allerta',
+                      ),
+                    ),
+                    leading: Radio<SingingCharacter>(
+                      value: SingingCharacter.lafayette,
+                      groupValue: _character,
+                      onChanged: (SingingCharacter? value) {
+                        setState(() {
+                          _character = value;
+                        });
+                      },
+                    ),
+                  ),
+                  ListTile(
+                    title: const Text(
+                      'Only today',
+                      style: TextStyle(
+                        fontFamily: 'Allerta',
+                      ),
+                    ),
+                    leading: Radio<SingingCharacter>(
+                      value: SingingCharacter.jefferson,
+                      groupValue: _character,
+                      onChanged: (SingingCharacter? value) {
+                        setState(() {
+                          _character = value;
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    setState(() {});
+                  },
+                  child: Text("Cancel"),
+                ),
+                TextButton(
+                  onPressed: () {
+                    setState(() {});
+                  },
+                  child: Text("OK"),
+                ),
+              ],
+            );
+          },
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -125,13 +198,14 @@ class _MenuManagementState extends State<MenuManagement> {
                       activeTrackColor: green,
                       onChanged: (value) {
                         setState(() {
+                          dialog(context);
                           isInavtiveSwitch = value;
                         });
                       },
                     ));
               },
               separatorBuilder: (BuildContext context, int index) {
-                return Divider(
+                return const Divider(
                   height: 5,
                   color: green,
                 );
