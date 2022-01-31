@@ -30,59 +30,73 @@ class _MenuManagementState extends State<MenuManagement> {
         return StatefulBuilder(
           builder: (context, setState) {
             return AlertDialog(
-              title: Text("Select product inactive duration"),
+              title: const Text("Select product inactive duration"),
               content: Column(
-                children: <Widget>[
-                  ListTile(
-                    title: const Text(
-                      'Permanently',
-                      style: TextStyle(
-                        fontFamily: 'Allerta',
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Radio<SingingCharacter>(
+                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        value: SingingCharacter.lafayette,
+                        groupValue: _character,
+                        onChanged: (SingingCharacter? value) {
+                          setState(() {
+                            _character = value;
+                          });
+                        },
                       ),
-                    ),
-                    leading: Radio<SingingCharacter>(
-                      value: SingingCharacter.lafayette,
-                      groupValue: _character,
-                      onChanged: (SingingCharacter? value) {
-                        setState(() {
-                          _character = value;
-                        });
-                      },
-                    ),
-                  ),
-                  ListTile(
-                    title: const Text(
-                      'Only today',
-                      style: TextStyle(
-                        fontFamily: 'Allerta',
+                      const Text(
+                        'Permanently',
+                        style: TextStyle(
+                          fontFamily: 'Allerta',
+                        ),
                       ),
-                    ),
-                    leading: Radio<SingingCharacter>(
-                      value: SingingCharacter.jefferson,
-                      groupValue: _character,
-                      onChanged: (SingingCharacter? value) {
-                        setState(() {
-                          _character = value;
-                        });
-                      },
-                    ),
+                    ],
                   ),
+                  Row(
+                    children: [
+                      Radio<SingingCharacter>(
+                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        value: SingingCharacter.jefferson,
+                        groupValue: _character,
+                        onChanged: (SingingCharacter? value) {
+                          setState(() {
+                            _character = value;
+                          });
+                        },
+                      ),
+                      const Text(
+                        'Only today',
+                        style: TextStyle(
+                          fontFamily: 'Allerta',
+                        ),
+                      ),
+
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      TextButton(
+                        onPressed: () {
+                          setState(() {});
+                        },
+                        child: Text("Cancel"),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          setState(() {
+
+                          });
+                        },
+                        child: Text("OK"),
+                      ),
+                    ],
+                  )
                 ],
               ),
-              actions: [
-                TextButton(
-                  onPressed: () {
-                    setState(() {});
-                  },
-                  child: Text("Cancel"),
-                ),
-                TextButton(
-                  onPressed: () {
-                    setState(() {});
-                  },
-                  child: Text("OK"),
-                ),
-              ],
             );
           },
         );

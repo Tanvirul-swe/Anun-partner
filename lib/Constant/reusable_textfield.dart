@@ -21,6 +21,26 @@ const UsernameTextFieldDecoration = InputDecoration(
     ),
   ),
 );
+const CountryTextFieldDecoration = InputDecoration(
+  suffixIcon: null,
+  prefixIcon: Icon(
+    Icons.flag_outlined,
+    color: green,
+  ),
+  focusedBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: Color(0xFFFAC245), width: 2.0),
+  ),
+  enabledBorder: OutlineInputBorder(
+    borderSide:  BorderSide(color: Color(0xFFFAC245), width: 2.0),
+  ),
+  label: Text(
+    'Location',
+    style: TextStyle(
+      color: Colors.black,
+      fontFamily: 'Allerta',
+    ),
+  ),
+);
 
 const PasswordTextFieldDecoration = InputDecoration(
   suffixIcon: Icon(

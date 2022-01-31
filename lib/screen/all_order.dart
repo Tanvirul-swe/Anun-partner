@@ -10,6 +10,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:numberpicker/numberpicker.dart';
 
+enum SingingCharacter { reason1, reason2, reason3, reason4, others }
+
 class AllOrder extends StatefulWidget {
   const AllOrder({Key? key}) : super(key: key);
 
@@ -63,6 +65,8 @@ class _AllOrderState extends State<AllOrder>
     });
   }
 
+  SingingCharacter? _character = SingingCharacter.reason1;
+
   Rejectdialog(BuildContext context) async {
     return showDialog(
       context: context,
@@ -71,8 +75,115 @@ class _AllOrderState extends State<AllOrder>
         return StatefulBuilder(
           builder: (context, setState) {
             return AlertDialog(
-              title: Text("Select product inactive duration"),
-              content: Text('sdfsd'),
+              title: const Text("Please Select reject reason"),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Radio<SingingCharacter>(
+                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        value: SingingCharacter.reason1,
+                        groupValue: _character,
+                        onChanged: (SingingCharacter? value) {
+                          setState(() {
+                            _character = value;
+                          });
+                        },
+                      ),
+                      const Text(
+                        'Reason 1',
+                        style: TextStyle(
+                          fontFamily: 'Allerta',
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Radio<SingingCharacter>(
+                            materialTapTargetSize:
+                                MaterialTapTargetSize.shrinkWrap,
+                            value: SingingCharacter.reason2,
+                            groupValue: _character,
+                            onChanged: (SingingCharacter? value) {
+                              setState(() {
+                                _character = value;
+                              });
+                            },
+                          ),
+                          const Text(
+                            'Reason 2',
+                            style: TextStyle(
+                              fontFamily: 'Allerta',
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Radio<SingingCharacter>(
+                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        value: SingingCharacter.reason3,
+                        groupValue: _character,
+                        onChanged: (SingingCharacter? value) {
+                          setState(() {
+                            _character = value;
+                          });
+                        },
+                      ),
+                      const Text(
+                        'Reason 3',
+                        style: TextStyle(
+                          fontFamily: 'Allerta',
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Radio<SingingCharacter>(
+                            materialTapTargetSize:
+                                MaterialTapTargetSize.shrinkWrap,
+                            value: SingingCharacter.reason4,
+                            groupValue: _character,
+                            onChanged: (SingingCharacter? value) {
+                              setState(() {
+                                _character = value;
+                              });
+                            },
+                          ),
+                          const Text(
+                            'Reason 2',
+                            style: TextStyle(
+                              fontFamily: 'Allerta',
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Radio<SingingCharacter>(
+                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        value: SingingCharacter.others,
+                        groupValue: _character,
+                        onChanged: (SingingCharacter? value) {
+                          setState(() {
+                            _character = value;
+                          });
+                        },
+                      ),
+                      const Text(
+                        'Others',
+                        style: TextStyle(
+                          fontFamily: 'Allerta',
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
               actions: [
                 TextButton(
                   onPressed: () {
@@ -154,6 +265,7 @@ class _AllOrderState extends State<AllOrder>
                       TextButton(
                         onPressed: () {
                           setState(() {
+                            Navigator.pop(context);
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(

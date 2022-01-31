@@ -2,9 +2,98 @@ import 'package:anun_partner/Constant/custom_color.dart';
 import 'package:anun_partner/Constant/reusable_textfield.dart';
 import 'package:anun_partner/screen/home_screen.dart';
 import 'package:flutter/material.dart';
+enum SingingCharacter { lafayette, jefferson }
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+
+  SingingCharacter? _character = SingingCharacter.lafayette;
+
+  dialog(BuildContext context) async {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        String contentText = "Content of Dialog";
+        return StatefulBuilder(
+          builder: (context, setState) {
+            return AlertDialog(
+              title: const Text("Select Your Country"),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Radio<SingingCharacter>(
+                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        value: SingingCharacter.lafayette,
+                        groupValue: _character,
+                        onChanged: (SingingCharacter? value) {
+                          setState(() {
+                            _character = value;
+                          });
+                        },
+                      ),
+                      const Text(
+                        'Bangladesh',
+                        style: TextStyle(
+                          fontFamily: 'Allerta',
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Radio<SingingCharacter>(
+                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        value: SingingCharacter.jefferson,
+                        groupValue: _character,
+                        onChanged: (SingingCharacter? value) {
+                          setState(() {
+                            _character = value;
+                          });
+                        },
+                      ),
+                      const Text(
+                        'Indonesia',
+                        style: TextStyle(
+                          fontFamily: 'Allerta',
+                        ),
+                      ),
+
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: Text("Cancel"),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: Text("OK"),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,14 +109,29 @@ class Login extends StatelessWidget {
             height: 100,
           ),
           Column(
-            children: const [
+            children: [
               TextField(
-                decoration: UsernameTextFieldDecoration,
+                readOnly: true,
+                onTap: () {
+                  dialog(context);
+                setState(() {
+
+
+                });
+                },
+                controller: TextEditingController(text: _character==SingingCharacter.lafayette?"Bangladesh":'India'),
+                decoration: CountryTextFieldDecoration,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              TextField(
+              const TextField(
+                decoration: UsernameTextFieldDecoration,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              const TextField(
                 decoration: PasswordTextFieldDecoration,
               ),
             ],
@@ -45,11 +149,11 @@ class Login extends StatelessWidget {
               ),
             ),
             onPressed: () => {
-              Navigator.push( context, MaterialPageRoute(builder: (context)=>const Home()))
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const Home()))
             },
             splashColor: read,
           ),
-
         ],
       ),
     ));
