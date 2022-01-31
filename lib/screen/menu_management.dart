@@ -32,7 +32,6 @@ class _MenuManagementState extends State<MenuManagement> {
             return AlertDialog(
               title: Text("Select product inactive duration"),
               content: Column(
-                mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   ListTile(
                     title: const Text(

@@ -10,15 +10,12 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:numberpicker/numberpicker.dart';
 
-
 class AllOrder extends StatefulWidget {
   const AllOrder({Key? key}) : super(key: key);
 
   @override
   State<AllOrder> createState() => _AllOrderState();
 }
-
-
 
 class _AllOrderState extends State<AllOrder>
     with SingleTickerProviderStateMixin {
@@ -35,7 +32,6 @@ class _AllOrderState extends State<AllOrder>
 
   @override
   void dispose() {
-
     super.dispose();
   }
 
@@ -97,6 +93,7 @@ class _AllOrderState extends State<AllOrder>
       },
     );
   }
+
   int _currentIntValue = 10;
 
   Acceptdialog(BuildContext context) async {
@@ -115,11 +112,15 @@ class _AllOrderState extends State<AllOrder>
                     value: _currentIntValue,
                     minValue: 0,
                     maxValue: 100,
+                    itemHeight: 50,
+                    itemWidth: 50,
+                    axis: Axis.horizontal,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
                       border: Border.all(color: green),
                     ),
-                    onChanged: (value) => setState(() => _currentIntValue = value),
+                    onChanged: (value) =>
+                        setState(() => _currentIntValue = value),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -127,44 +128,51 @@ class _AllOrderState extends State<AllOrder>
                       IconButton(
                         icon: Icon(Icons.remove),
                         onPressed: () => setState(() {
-                          final newValue = _currentIntValue - 10;
+                          final newValue = _currentIntValue - 1;
                           _currentIntValue = newValue.clamp(0, 100);
                         }),
                       ),
-                      Text('Current int value: $_currentIntValue'),
+                      Text('Current Time: ${_currentIntValue} M'),
                       IconButton(
                         icon: Icon(Icons.add),
                         onPressed: () => setState(() {
-                          final newValue = _currentIntValue + 20;
+                          final newValue = _currentIntValue + 1;
                           _currentIntValue = newValue.clamp(0, 100);
                         }),
                       ),
                     ],
                   ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      TextButton(
+                        onPressed: () {
+                          setState(() {});
+                        },
+                        child: Text("Cancel"),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          setState(() {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const DeliverdScreen()));
+                          });
+                        },
+                        child: Text("OK"),
+                      ),
+                    ],
+                  )
                 ],
               ),
-              actions: [
-                TextButton(
-                  onPressed: () {
-                    setState(() {});
-                  },
-                  child: Text("Cancel"),
-                ),
-                TextButton(
-                  onPressed: () {
-                    setState(() {});
-                  },
-                  child: Text("OK"),
-                ),
-              ],
             );
           },
         );
       },
     );
   }
-
-
 
   bool check = false;
   final GlobalKey<ScaffoldState> _key = GlobalKey(); // Create a key
@@ -418,7 +426,6 @@ class _AllOrderState extends State<AllOrder>
                         ),
                         onPressed: () => {
                           Acceptdialog(context),
-                          // Navigator.push(context, MaterialPageRoute(builder: (context)=>const DeliverdScreen()))
                         },
                         splashColor: read,
                       ),
