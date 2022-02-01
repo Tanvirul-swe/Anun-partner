@@ -2,6 +2,7 @@ import 'package:anun_partner/Constant/custom_color.dart';
 import 'package:anun_partner/Constant/reusable_textfield.dart';
 import 'package:anun_partner/screen/home_screen.dart';
 import 'package:flutter/material.dart';
+
 enum SingingCharacter { lafayette, jefferson }
 
 class Login extends StatefulWidget {
@@ -12,7 +13,6 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-
   SingingCharacter? _character = SingingCharacter.lafayette;
 
   dialog(BuildContext context) async {
@@ -66,7 +66,6 @@ class _LoginState extends State<Login> {
                           fontFamily: 'Allerta',
                         ),
                       ),
-
                     ],
                   ),
                   Row(
@@ -74,13 +73,19 @@ class _LoginState extends State<Login> {
                     children: [
                       TextButton(
                         onPressed: () {
-                          Navigator.pop(context);
+                          setState(() {
+                            Navigator.pop(context);
+                            print(_character);
+                          });
                         },
                         child: Text("Cancel"),
                       ),
                       TextButton(
                         onPressed: () {
-                          Navigator.pop(context);
+                          setState(() {
+                            Navigator.pop(context);
+                            print(_character);
+                          });
                         },
                         child: Text("OK"),
                       ),
@@ -113,13 +118,14 @@ class _LoginState extends State<Login> {
               TextField(
                 readOnly: true,
                 onTap: () {
-                  dialog(context);
-                setState(() {
-
-
-                });
+                  setState(() {
+                    dialog(context);
+                  });
                 },
-                controller: TextEditingController(text: _character==SingingCharacter.lafayette?"Bangladesh":'India'),
+                controller: TextEditingController(
+                    text: _character == SingingCharacter.lafayette
+                        ? "Bangladesh"
+                        : 'Indonesia'),
                 decoration: CountryTextFieldDecoration,
               ),
               const SizedBox(

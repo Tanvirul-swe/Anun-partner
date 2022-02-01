@@ -5,6 +5,7 @@ import 'package:anun_partner/Constant/reusable_textfield.dart';
 import 'package:anun_partner/CustomWidgets/custom_drawer.dart';
 import 'package:anun_partner/CustomWidgets/custom_widgets.dart';
 import 'package:anun_partner/screen/deliveredScreen.dart';
+import 'package:anun_partner/screen/ongoing_order_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_switch/flutter_switch.dart';
@@ -359,233 +360,232 @@ class _AllOrderState extends State<AllOrder>
       ),
       drawer: CustomDrawer(),
       body: SingleChildScrollView(
-          physics: const ScrollPhysics(),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: check == false
-                ? Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text(
-                            'Order ID : 101',
-                            style: TextStyle(
-                              fontFamily: 'Allerta',
-                              fontSize: 17,
-                              fontWeight: FontWeight.bold,
-                            ),
+        physics: const ScrollPhysics(),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: check == false
+              ? Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          'Order ID : 101',
+                          style: TextStyle(
+                            fontFamily: 'Allerta',
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
                           ),
-                          ElevatedButton(
-                              onPressed: () {
-                                Rejectdialog(context);
-                              },
-                              style: ButtonStyle(
-                                backgroundColor:
-                                    MaterialStateProperty.all(Colors.red),
-                              ),
-                              child: const Text('Reject')),
+                        ),
+                        ElevatedButton(
+                            onPressed: () {
+                              Rejectdialog(context);
+                            },
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(Colors.red),
+                            ),
+                            child: const Text('Reject')),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      width: double.infinity,
+                      child: ListView.builder(
+                          physics: const NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                          itemCount: 5,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Row(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 8),
+                                  child: Container(
+                                    height: 25,
+                                    width: 75,
+                                    child: const Center(
+                                      child: Text(
+                                        '3X',
+                                        style: TextStyle(
+                                            fontFamily: 'Allerta',
+                                            color: Colors.black,
+                                            fontSize: 17),
+                                      ),
+                                    ),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: Colors.white,
+                                      boxShadow: const [
+                                        BoxShadow(
+                                            color: Colors.green,
+                                            spreadRadius: 1),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 50,
+                                ),
+                                const Text(
+                                  'Chicken burger',
+                                  style: TextStyle(
+                                    fontFamily: 'Allerta',
+                                    fontSize: 17,
+                                  ),
+                                ),
+                              ],
+                            );
+                          }),
+                    ),
+                    Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(15),
+                      child: const Text(
+                        'Extra : Add more masala',
+                        style: TextStyle(
+                          fontFamily: 'Allerta',
+                          fontSize: 17,
+                        ),
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white,
+                        boxShadow: const [
+                          BoxShadow(color: Colors.green, spreadRadius: 1),
                         ],
                       ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Container(
-                        width: double.infinity,
-                        child: ListView.builder(
-                            physics: const NeverScrollableScrollPhysics(),
-                            shrinkWrap: true,
-                            itemCount: 5,
-                            itemBuilder: (BuildContext context, int index) {
-                              return Row(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(bottom: 8),
-                                    child: Container(
-                                      height: 25,
-                                      width: 75,
-                                      child: const Center(
-                                        child: Text(
-                                          '3X',
-                                          style: TextStyle(
-                                              fontFamily: 'Allerta',
-                                              color: Colors.black,
-                                              fontSize: 17),
-                                        ),
-                                      ),
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        color: Colors.white,
-                                        boxShadow: const [
-                                          BoxShadow(
-                                              color: Colors.green,
-                                              spreadRadius: 1),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    width: 50,
-                                  ),
-                                  const Text(
-                                    'Chicken burger',
-                                    style: TextStyle(
-                                      fontFamily: 'Allerta',
-                                      fontSize: 17,
-                                    ),
-                                  ),
-                                ],
-                              );
-                            }),
-                      ),
-                      Container(
-                        width: double.infinity,
-                        padding: const EdgeInsets.all(15),
-                        child: const Text(
-                          'Extra : Add more masala',
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(10),
+                      child: const Align(
+                        alignment: Alignment.topRight,
+                        child: Text(
+                          'Total : 450 TK',
                           style: TextStyle(
                             fontFamily: 'Allerta',
                             fontSize: 17,
                           ),
                         ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.white,
-                          boxShadow: const [
-                            BoxShadow(color: Colors.green, spreadRadius: 1),
-                          ],
-                        ),
                       ),
-                      const SizedBox(
-                        height: 20,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white,
+                        boxShadow: const [
+                          BoxShadow(color: Colors.green, spreadRadius: 1),
+                        ],
                       ),
-                      Container(
-                        width: double.infinity,
-                        padding: const EdgeInsets.all(10),
-                        child: const Align(
-                          alignment: Alignment.topRight,
-                          child: Text(
-                            'Total : 450 TK',
-                            style: TextStyle(
-                              fontFamily: 'Allerta',
-                              fontSize: 17,
-                            ),
-                          ),
-                        ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.white,
-                          boxShadow: const [
-                            BoxShadow(color: Colors.green, spreadRadius: 1),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Container(
-                        width: double.infinity,
-                        padding: const EdgeInsets.all(10),
-                        child: const Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            'Auto reject will be within',
-                            style: TextStyle(
-                              fontFamily: 'Allerta',
-                              fontSize: 17,
-                            ),
-                          ),
-                        ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.white,
-                          boxShadow: const [
-                            BoxShadow(color: Colors.green, spreadRadius: 1),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      TweenAnimationBuilder(
-                          tween: Tween(begin: 0.0, end: 1.0),
-                          duration: const Duration(seconds: 30),
-                          builder: (context, double value, _) => SizedBox(
-                                child: LinearProgressIndicator(
-                                  value: value,
-                                  backgroundColor: Colors.grey,
-                                  color: green,
-                                  minHeight: 5,
-                                ),
-                              )),
-                      Container(
-                        height: 125,
-                        width: double.infinity,
-                        child: Center(child: buildTime()),
-                      ),
-                      MaterialButton(
-                        height: 40.0,
-                        minWidth: double.infinity,
-                        color: green,
-                        textColor: black,
-                        child: const Text(
-                          "Accept Order",
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(10),
+                      child: const Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Auto reject will be within',
                           style: TextStyle(
-                            fontFamily: "Allerta",
+                            fontFamily: 'Allerta',
                             fontSize: 17,
                           ),
                         ),
-                        onPressed: () => {
-                          Acceptdialog(context),
-                        },
-                        splashColor: read,
                       ),
-                      const SizedBox(
-                        height: 15,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white,
+                        boxShadow: const [
+                          BoxShadow(color: Colors.green, spreadRadius: 1),
+                        ],
                       ),
-                      Container(
-                        height: 60,
-                        color: green,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            IconButton(
-                                onPressed: () {
-                                  _key.currentState!.openDrawer();
-                                },
-                                icon: Icon(Icons.menu)),
-                            status == true
-                                ? const Text(
-                                    'You are Online',
-                                    style: Ktextstyle,
-                                  )
-                                : const Text('You are Offline',
-                                    style: Ktextstyle),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 8),
-                              child: FlutterSwitch(
-                                width: 55.0,
-                                height: 25.0,
-                                valueFontSize: 12.0,
-                                toggleSize: 18.0,
-                                value: status,
-                                onToggle: (val) {
-                                  setState(() {
-                                    status = val;
-                                  });
-                                },
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    TweenAnimationBuilder(
+                        tween: Tween(begin: 0.0, end: 1.0),
+                        duration: const Duration(seconds: 30),
+                        builder: (context, double value, _) => SizedBox(
+                              child: LinearProgressIndicator(
+                                value: value,
+                                backgroundColor: Colors.grey,
+                                color: green,
+                                minHeight: 5,
                               ),
-                            ),
-                          ],
+                            )),
+                    Container(
+                      height: 125,
+                      width: double.infinity,
+                      child: Center(child: buildTime()),
+                    ),
+                    MaterialButton(
+                      height: 40.0,
+                      minWidth: double.infinity,
+                      color: green,
+                      textColor: black,
+                      child: const Text(
+                        "Accept Order",
+                        style: TextStyle(
+                          fontFamily: "Allerta",
+                          fontSize: 17,
                         ),
                       ),
-                    ],
-                  )
-                : Container(
-                    child: Text('I am ongoing page'),
-                  ),
-          )),
+                      onPressed: () => {
+                        Acceptdialog(context),
+                      },
+                      splashColor: read,
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Container(
+                      height: 60,
+                      color: green,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          IconButton(
+                              onPressed: () {
+                                _key.currentState!.openDrawer();
+                              },
+                              icon: Icon(Icons.menu)),
+                          status == true
+                              ? const Text(
+                                  'You are Online',
+                                  style: Ktextstyle,
+                                )
+                              : const Text('You are Offline',
+                                  style: Ktextstyle),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 8),
+                            child: FlutterSwitch(
+                              width: 55.0,
+                              height: 25.0,
+                              valueFontSize: 12.0,
+                              toggleSize: 18.0,
+                              value: status,
+                              onToggle: (val) {
+                                setState(() {
+                                  status = val;
+                                });
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                )
+              : Container(),
+        ),
+      ),
     );
   }
 }
