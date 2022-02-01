@@ -22,69 +22,80 @@ class _DeliverdScreenState extends State<DeliverdScreen> {
     return Scaffold(
       key: _key,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        title: const Text('Delivered Order',style: TextStyle(
+          color: Colors.black,
+          fontFamily: 'Allerta',
+        ),),
+        backgroundColor: green,
         elevation: 0,
-        automaticallyImplyLeading: false,
-        flexibleSpace: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Center(
-                child: Expanded(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: MaterialButton(
-                          height: double.infinity,
-                          minWidth: double.infinity,
-                          color: check == false ? green : Color(0xFFedf2f8),
-                          textColor: black,
-                          child: const Text(
-                            "Incoming(3)",
-                            style: TextStyle(
-                              fontFamily: "Allerta",
-                              fontSize: 17,
-                            ),
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              check = false;
-                            });
-                          },
-                          splashColor: read,
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      Expanded(
-                        child: MaterialButton(
-                          height: double.infinity,
-                          minWidth: double.infinity,
-                          color: check == true ? green : Color(0xFFedf2f8),
-                          textColor: black,
-                          child: const Text(
-                            "Ongoing(6)",
-                            style: TextStyle(
-                              fontFamily: "Allerta",
-                              fontSize: 17,
-                            ),
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              check = true;
-                            });
-                          },
-                          splashColor: read,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            )),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: Icon(Icons.arrow_back,color: Colors.black,))
       ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.white,
+      //   elevation: 0,
+      //   automaticallyImplyLeading: false,
+      //   flexibleSpace: SafeArea(
+      //       child: Padding(
+      //         padding: const EdgeInsets.all(8.0),
+      //         child: Center(
+      //           child: Expanded(
+      //             child: Row(
+      //               mainAxisAlignment: MainAxisAlignment.center,
+      //               crossAxisAlignment: CrossAxisAlignment.center,
+      //               children: [
+      //                 Expanded(
+      //                   child: MaterialButton(
+      //                     height: double.infinity,
+      //                     minWidth: double.infinity,
+      //                     color: check == false ? green : Color(0xFFedf2f8),
+      //                     textColor: black,
+      //                     child: const Text(
+      //                       "Incoming(3)",
+      //                       style: TextStyle(
+      //                         fontFamily: "Allerta",
+      //                         fontSize: 17,
+      //                       ),
+      //                     ),
+      //                     onPressed: () {
+      //                       setState(() {
+      //                         check = false;
+      //                       });
+      //                     },
+      //                     splashColor: read,
+      //                   ),
+      //                 ),
+      //                 const SizedBox(
+      //                   width: 5,
+      //                 ),
+      //                 Expanded(
+      //                   child: MaterialButton(
+      //                     height: double.infinity,
+      //                     minWidth: double.infinity,
+      //                     color: check == true ? green : Color(0xFFedf2f8),
+      //                     textColor: black,
+      //                     child: const Text(
+      //                       "Ongoing(6)",
+      //                       style: TextStyle(
+      //                         fontFamily: "Allerta",
+      //                         fontSize: 17,
+      //                       ),
+      //                     ),
+      //                     onPressed: () {
+      //                       setState(() {
+      //                         check = true;
+      //                       });
+      //                     },
+      //                     splashColor: read,
+      //                   ),
+      //                 ),
+      //               ],
+      //             ),
+      //           ),
+      //         ),
+      //       )),
+      // ),
       drawer: CustomDrawer(),
       body: SingleChildScrollView(
           physics: const ScrollPhysics(),

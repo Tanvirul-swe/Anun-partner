@@ -11,7 +11,7 @@ const UsernameTextFieldDecoration = InputDecoration(
     borderSide: BorderSide(color: Color(0xFFFAC245), width: 2.0),
   ),
   enabledBorder: OutlineInputBorder(
-    borderSide:  BorderSide(color: Color(0xFFFAC245), width: 2.0),
+    borderSide: BorderSide(color: Color(0xFFFAC245), width: 2.0),
   ),
   label: Text(
     'Username',
@@ -31,7 +31,7 @@ const CountryTextFieldDecoration = InputDecoration(
     borderSide: BorderSide(color: Color(0xFFFAC245), width: 2.0),
   ),
   enabledBorder: OutlineInputBorder(
-    borderSide:  BorderSide(color: Color(0xFFFAC245), width: 2.0),
+    borderSide: BorderSide(color: Color(0xFFFAC245), width: 2.0),
   ),
   label: Text(
     'Location',
@@ -52,10 +52,10 @@ const PasswordTextFieldDecoration = InputDecoration(
     color: Color(0xFFFAC245),
   ),
   focusedBorder: OutlineInputBorder(
-    borderSide:  BorderSide(color: Color(0xFFFAC245), width: 2.0),
+    borderSide: BorderSide(color: Color(0xFFFAC245), width: 2.0),
   ),
   enabledBorder: OutlineInputBorder(
-    borderSide:  BorderSide(color: Color(0xFFFAC245), width: 2.0),
+    borderSide: BorderSide(color: Color(0xFFFAC245), width: 2.0),
   ),
   label: Text(
     'Password',
