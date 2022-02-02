@@ -1,6 +1,8 @@
+
 import 'package:anun_partner/Constant/custom_color.dart';
 import 'package:anun_partner/screen/menu_management.dart';
 import 'package:anun_partner/screen/orders_list.dart';
+import 'package:anun_partner/screen/request_to_change.dart';
 import 'package:flutter/material.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -70,7 +72,9 @@ class CustomDrawer extends StatelessWidget {
               title: const Text('Tutorial'),
             ),
             ListTile(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>RequestToChange()));
+              },
               leading: const Icon(Icons.share),
               title: const Text('Request changes'),
             ),
