@@ -29,7 +29,7 @@ class _RequestToChangeState extends State<RequestToChange> {
               Tab(text: 'Request List'),
             ],
           ),
-          title: Text(
+          title: const Text(
             'Request for Change',
             style: TextStyle(
               color: Colors.black,
@@ -37,7 +37,7 @@ class _RequestToChangeState extends State<RequestToChange> {
             ),
           ),
         ),
-        body: TabBarView(
+        body: const TabBarView(
           children: [
             RequestPage(),
             RequestList(),
@@ -58,11 +58,12 @@ class RequestPage extends StatefulWidget {
 class _RequestPageState extends State<RequestPage> {
   List<DropdownMenuItem<String>> get dropdownItems {
     List<DropdownMenuItem<String>> menuItems = [
-      DropdownMenuItem(child: Text("Name correction"), value: "name"),
-      DropdownMenuItem(child: Text("Menu correction"), value: "menue"),
-      DropdownMenuItem(child: Text("Price correction"), value: "price"),
-      DropdownMenuItem(child: Text("Offers correction"), value: "England"),
-      DropdownMenuItem(child: Text("Others"), value: "othes"),
+      const DropdownMenuItem(child: Text("Name correction"), value: "name"),
+      const DropdownMenuItem(child: Text("Menu correction"), value: "menue"),
+      const DropdownMenuItem(child: Text("Price correction"), value: "price"),
+      const DropdownMenuItem(
+          child: Text("Offers correction"), value: "England"),
+      const DropdownMenuItem(child: Text("Others"), value: "othes"),
     ];
     return menuItems;
   }
@@ -136,15 +137,13 @@ class _RequestPageState extends State<RequestPage> {
             color: green,
             textColor: black,
             child: const Text(
-              "Sign In",
+              "Request for Change",
               style: TextStyle(
                 fontFamily: "Allerta",
                 fontSize: 17,
               ),
             ),
-            onPressed: () => {
-
-            },
+            onPressed: () => {},
             splashColor: read,
           ),
         ],
@@ -159,7 +158,47 @@ class RequestList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text('I am request list'),
-    );
+        body: Column(
+      children: [
+        Padding(padding: EdgeInsets.all(8)),
+        Row(
+          children: [
+            SizedBox(
+              width: 5,
+            ),
+            Flexible(
+              flex: 1,
+              child: Container(
+                height: 50,
+                color: Colors.blue,
+              ),
+            ),
+            SizedBox(
+              width: 5,
+            ),
+            Flexible(
+              flex: 1,
+              child: Container(
+                height: 50,
+                color: Colors.amber,
+              ),
+            ),
+            SizedBox(
+              width: 5,
+            ),
+            Flexible(
+              flex: 1,
+              child: Container(
+                height: 50,
+                color: Colors.black,
+              ),
+            ),
+            SizedBox(
+              width: 5,
+            ),
+          ],
+        )
+      ],
+    ));
   }
 }
