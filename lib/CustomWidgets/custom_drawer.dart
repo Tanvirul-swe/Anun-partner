@@ -3,6 +3,7 @@ import 'package:anun_partner/Constant/custom_color.dart';
 import 'package:anun_partner/screen/menu_management.dart';
 import 'package:anun_partner/screen/orders_list.dart';
 import 'package:anun_partner/screen/request_to_change.dart';
+import 'package:anun_partner/screen/voucher.dart';
 import 'package:flutter/material.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -45,7 +46,7 @@ class CustomDrawer extends StatelessWidget {
             ),
             ListTile(
               onTap: () {},
-              leading: Icon(Icons.perm_camera_mic),
+              leading: Image.asset('Assets/Icons/performance.png',width: 30,),
               title: const Text('Performance report'),
             ),
             ListTile(
@@ -55,7 +56,7 @@ class CustomDrawer extends StatelessWidget {
                     MaterialPageRoute(
                         builder: (context) => const MenuManagement()));
               },
-              leading: Icon(Icons.control_camera),
+              leading: Image.asset('Assets/Icons/menucontrol.png',width: 30,),
               title: const Text('Menu Control'),
             ),
             ListTile(
@@ -63,29 +64,36 @@ class CustomDrawer extends StatelessWidget {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => OrderList()));
               },
-              leading: Icon(Icons.opacity_rounded),
+              leading:Image.asset('Assets/Icons/order.png',width: 30,),
               title: const Text('Orders'),
             ),
             ListTile(
               onTap: () {},
-              leading: Icon(Icons.emoji_events_outlined),
+              leading: Image.asset('Assets/Icons/tutorial.png',width: 30,),
               title: const Text('Tutorial'),
             ),
             ListTile(
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>RequestToChange()));
               },
-              leading: const Icon(Icons.share),
+              leading: Image.asset('Assets/Icons/request.png',width: 30,),
               title: const Text('Request changes'),
             ),
             ListTile(
               onTap: () {},
-              leading: const Icon(Icons.reviews),
+              leading: Image.asset('Assets/Icons/reating.png',width: 30,),
               title: const Text('Review response'),
             ),
             ListTile(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>VoucherPage()));
+              },
+              leading: Image.asset('Assets/Icons/coupon.png',width: 30,),
+              title: const Text('Redeem voucher'),
+            ),
+            ListTile(
               onTap: () {},
-              leading: const Icon(Icons.chat),
+              leading: Image.asset('Assets/Icons/chat.png',width: 30,),
               title: const Text('Chat with US'),
             ),
           ],

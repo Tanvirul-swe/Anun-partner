@@ -158,47 +158,148 @@ class RequestList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      children: [
-        Padding(padding: EdgeInsets.all(8)),
-        Row(
-          children: [
-            SizedBox(
-              width: 5,
-            ),
-            Flexible(
-              flex: 1,
-              child: Container(
-                height: 50,
-                color: Colors.blue,
+        body: SingleChildScrollView(
+      child: Column(
+        children: [
+          Padding(padding: EdgeInsets.all(8)),
+          Row(
+            children: [
+              SizedBox(
+                width: 5,
               ),
-            ),
-            SizedBox(
-              width: 5,
-            ),
-            Flexible(
-              flex: 1,
-              child: Container(
-                height: 50,
-                color: Colors.amber,
+              Flexible(
+                flex: 1,
+                child: Container(
+                  child: const Center(
+                      child: Text(
+                    'Request ID',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'Allerta',
+                        fontSize: 20),
+                  )),
+                  height: 50,
+                  color: green,
+                ),
               ),
-            ),
-            SizedBox(
-              width: 5,
-            ),
-            Flexible(
-              flex: 1,
-              child: Container(
-                height: 50,
-                color: Colors.black,
+              SizedBox(
+                width: 5,
               ),
-            ),
-            SizedBox(
-              width: 5,
-            ),
-          ],
-        )
-      ],
+              Flexible(
+                flex: 1,
+                child: Container(
+                  height: 50,
+                  color: green,
+                  child: const Center(
+                      child: Text(
+                    'Date & Time',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'Allerta',
+                        fontSize: 20),
+                  )),
+                ),
+              ),
+              SizedBox(
+                width: 5,
+              ),
+              Flexible(
+                flex: 1,
+                child: Container(
+                  height: 50,
+                  color: green,
+                  child: const Center(
+                      child: Text(
+                    'Status',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'Allerta',
+                        fontSize: 20),
+                  )),
+                ),
+              ),
+              SizedBox(
+                width: 5,
+              ),
+            ],
+          ),
+          ListView.builder(
+              itemCount: 100,
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemBuilder: (BuildContext context, int index) {
+                return Column(
+                  children: [
+                    SizedBox(height: 5,),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Flexible(
+                          flex: 1,
+                          child: Container(
+                            child: const Center(
+                                child: Text(
+                              'food123',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: 'Allerta',
+                                  fontSize: 16),
+                            )),
+                            height: 50,
+                            color: Color(0xFFCDD4EA),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Flexible(
+                          flex: 1,
+                          child: Container(
+                            height: 50,
+                            color: Color(0xFFCDD4EA),
+                            child: const Center(
+                                child: Text(
+                              '25-03-2000',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: 'Allerta',
+                                  fontSize: 16),
+                            )),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Flexible(
+                          flex: 1,
+                          child: Container(
+                            height: 50,
+                            color: Color(0xFFCDD4EA),
+                            child: const Center(
+                                child: Text(
+                              'Pending',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: 'Allerta',
+                                  fontSize: 16),
+                            )),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 5,
+                    )
+                  ],
+                );
+              })
+        ],
+      ),
     ));
   }
 }
