@@ -13,43 +13,63 @@ class VoucherPage extends StatefulWidget {
 class _VoucherPageState extends State<VoucherPage> {
   bool status = false;
 
+  VoucherDialog(BuildContext context) async {
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+              backgroundColor: Color(0xFFFFE599),
+              content: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text('Voucher Balance'),
+                  Text(
+                    '500 Tk',
+                    style: TextStyle(
+                        fontFamily: 'Allerta',
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ));
+        });
+  }
 
-VoucherDialog(BuildContext context)async{
-  return showDialog(context: context, builder: (context){
-    return  AlertDialog(
-      backgroundColor: Color(0xFFFFE599),
-      content: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text('Voucher Balance'),
-          Text('500 Tk',style: TextStyle(
-            fontFamily: 'Allerta',
-            fontSize: 25,
-            fontWeight: FontWeight.bold
-          ),),
-        ],
-      )
-    );
-  });
-}
-  RedeemDialog(BuildContext context)async{
-    return showDialog(context: context, builder: (context){
-      return  AlertDialog(
-          backgroundColor: Color(0xFFFFE599),
-          title: const Text('Do you agree to redeem now?',style: TextStyle(
-            fontFamily: 'Allerta',
-          ),),
-        actions: [
-          TextButton(onPressed: (){}, child: Text('Yes',style: TextStyle(
-            color: Colors.black
-          ),)),
-          TextButton(onPressed: (){}, child: Text('No',style: TextStyle(
-            color: Colors.black,
-          ),)),
-        ],
-      );
-    });
+  RedeemDialog(BuildContext context) async {
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            backgroundColor: Color(0xFFFFE599),
+            title: const Text(
+              'Do you agree to redeem now?',
+              style: TextStyle(
+                fontFamily: 'Allerta',
+              ),
+            ),
+            actions: [
+              TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text(
+                    'Yes',
+                    style: TextStyle(color: Colors.black),
+                  )),
+              TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text(
+                    'No',
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  )),
+            ],
+          );
+        });
   }
 
   @override
@@ -59,40 +79,40 @@ VoucherDialog(BuildContext context)async{
         elevation: 0,
         backgroundColor: green,
         iconTheme: const IconThemeData(color: Colors.black),
-        title: const Text('Redeem voucher',style: TextStyle(
-          color: Colors.black,
-          fontFamily: 'Allerta',
-        ),),
+        title: const Text(
+          'Redeem voucher',
+          style: TextStyle(
+            color: Colors.black,
+            fontFamily: 'Allerta',
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
-            children:  [
-              const Text('Check voucher balance',style:  TextStyle(
-                fontFamily: 'Allerta',
-                fontSize: 17
-              ),),
+            children: [
+              const Text(
+                'Check voucher balance',
+                style: TextStyle(fontFamily: 'Allerta', fontSize: 17),
+              ),
               const SizedBox(
                 height: 10,
               ),
               const TextField(
-                decoration: InputDecoration(
-                  hintText: 'Enter customer mobile number',
-                  filled: true,
-                  fillColor: Color(0xFFF2F2F2),
-                  focusedBorder:   OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(5)),
-                    borderSide: BorderSide(width: 2, color: green),
-                  ),
-                  enabledBorder:  OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(5)),
-                    borderSide:  BorderSide(width: 2, color: green),
-                  ),
-
-
-              )
-              ),
+                  decoration: InputDecoration(
+                hintText: 'Enter customer mobile number',
+                filled: true,
+                fillColor: Color(0xFFF2F2F2),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                  borderSide: BorderSide(width: 2, color: green),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                  borderSide: BorderSide(width: 2, color: green),
+                ),
+              )),
               const SizedBox(
                 height: 10,
               ),
@@ -108,7 +128,7 @@ VoucherDialog(BuildContext context)async{
                     fontSize: 17,
                   ),
                 ),
-                onPressed: (){
+                onPressed: () {
                   VoucherDialog(context);
                 },
                 splashColor: read,
@@ -116,80 +136,77 @@ VoucherDialog(BuildContext context)async{
               const SizedBox(
                 height: 25,
               ),
-              const Text('Lets redeem a voucher',style: TextStyle(
-                fontSize: 17,
-                fontFamily: 'Allerta',
-              ),),
+              const Text(
+                'Lets redeem a voucher',
+                style: TextStyle(
+                  fontSize: 17,
+                  fontFamily: 'Allerta',
+                ),
+              ),
               const SizedBox(
                 height: 20,
               ),
               const TextField(
                   decoration: InputDecoration(
-                    hintText: 'Mobile number',
-                    filled: true,
-                    fillColor: Color(0xFFF2F2F2),
-                    focusedBorder:   OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(5)),
-                      borderSide: BorderSide(width: 2, color: green),
-                    ),
-                    enabledBorder:  OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(5)),
-                      borderSide:  BorderSide(width: 2, color: green),
-                    ),
-
-
-                  )
-              ),
+                hintText: 'Mobile number',
+                filled: true,
+                fillColor: Color(0xFFF2F2F2),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                  borderSide: BorderSide(width: 2, color: green),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                  borderSide: BorderSide(width: 2, color: green),
+                ),
+              )),
               SizedBox(
                 height: 10,
               ),
               const TextField(
                   decoration: InputDecoration(
-                    hintText: 'Voucher secret code',
-                    filled: true,
-                    fillColor: Color(0xFFF2F2F2),
-                    focusedBorder:   OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(5)),
-                      borderSide: BorderSide(width: 2, color: green),
-                    ),
-                    enabledBorder:  OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(5)),
-                      borderSide:  BorderSide(width: 2, color: green),
-                    ),
-
-
-                  )
-              ),
+                hintText: 'Voucher secret code',
+                filled: true,
+                fillColor: Color(0xFFF2F2F2),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                  borderSide: BorderSide(width: 2, color: green),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                  borderSide: BorderSide(width: 2, color: green),
+                ),
+              )),
               SizedBox(
                 height: 10,
               ),
               const TextField(
                   decoration: InputDecoration(
-                    hintText: 'Product Price',
-                    filled: true,
-                    fillColor: Color(0xFFF2F2F2),
-                    focusedBorder:   OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(5)),
-                      borderSide: BorderSide(width: 2, color: green),
-                    ),
-                    enabledBorder:  OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(5)),
-                      borderSide:  BorderSide(width: 2, color: green),
-                    ),
-
-
-                  )
-              ),
+                hintText: 'Product Price',
+                filled: true,
+                fillColor: Color(0xFFF2F2F2),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                  borderSide: BorderSide(width: 2, color: green),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                  borderSide: BorderSide(width: 2, color: green),
+                ),
+              )),
               SizedBox(
                 height: 10,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children:  [
-                  const Text('Received Extra cash?',style: TextStyle(
-                    fontFamily: 'Allerta',
-                    fontSize: 17,
-                  ),),
+                children: [
+                  const Text(
+                    'Received Extra cash?',
+                    style: TextStyle(
+                      fontFamily: 'Allerta',
+                      fontSize: 17,
+                    ),
+                  ),
                   FlutterSwitch(
                     width: 55.0,
                     height: 25.0,
@@ -207,43 +224,25 @@ VoucherDialog(BuildContext context)async{
               const SizedBox(
                 height: 10,
               ),
-              status==true? const TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Enter extra cash amount',
-                    filled: true,
-                    fillColor: Color(0xFFF2F2F2),
-                    focusedBorder:   OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(5)),
-                      borderSide: BorderSide(width: 2, color: green),
-                    ),
-                    enabledBorder:  OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(5)),
-                      borderSide:  BorderSide(width: 2, color: green),
-                    ),
-
-
-                  )
-              ):Container(),
+              status == true
+                  ? const TextField(
+                      decoration: InputDecoration(
+                      hintText: 'Enter extra cash amount',
+                      filled: true,
+                      fillColor: Color(0xFFF2F2F2),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(5)),
+                        borderSide: BorderSide(width: 2, color: green),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(5)),
+                        borderSide: BorderSide(width: 2, color: green),
+                      ),
+                    ))
+                  : Container(),
               const SizedBox(
                 height: 10,
               ),
-               status==true? const TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Voucher secret code',
-                    filled: true,
-                    fillColor: Color(0xFFF2F2F2),
-                    focusedBorder:   OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(5)),
-                      borderSide: BorderSide(width: 2, color: green),
-                    ),
-                    enabledBorder:  OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(5)),
-                      borderSide:  BorderSide(width: 2, color: green),
-                    ),
-
-
-                  )
-              ):Container(),
               SizedBox(
                 height: 10,
               ),
@@ -259,7 +258,7 @@ VoucherDialog(BuildContext context)async{
                     fontSize: 17,
                   ),
                 ),
-                onPressed: (){
+                onPressed: () {
                   RedeemDialog(context);
                 },
                 splashColor: read,

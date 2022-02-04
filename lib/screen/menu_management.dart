@@ -115,58 +115,56 @@ class _MenuManagementState extends State<MenuManagement> {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Center(
-              child: Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: MaterialButton(
-                        height: double.infinity,
-                        minWidth: double.infinity,
-                        color: isActive == false ? green : Color(0xFFedf2f8),
-                        textColor: black,
-                        child: const Text(
-                          "Active Items",
-                          style: TextStyle(
-                            fontFamily: "Allerta",
-                            fontSize: 17,
-                          ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: MaterialButton(
+                      height: double.infinity,
+                      minWidth: double.infinity,
+                      color: isActive == false ? green : Color(0xFFedf2f8),
+                      textColor: black,
+                      child: const Text(
+                        "Active Items",
+                        style: TextStyle(
+                          fontFamily: "Allerta",
+                          fontSize: 17,
                         ),
-                        onPressed: () {
-                          setState(() {
-                            isActive = false;
-                          });
-                        },
-                        splashColor: read,
                       ),
+                      onPressed: () {
+                        setState(() {
+                          isActive = false;
+                        });
+                      },
+                      splashColor: read,
                     ),
-                    const SizedBox(
-                      width: 5,
-                    ),
-                    Expanded(
-                      child: MaterialButton(
-                        height: double.infinity,
-                        minWidth: double.infinity,
-                        color: isActive == true ? green : Color(0xFFedf2f8),
-                        textColor: black,
-                        child: const Text(
-                          "Inactive Items",
-                          style: TextStyle(
-                            fontFamily: "Allerta",
-                            fontSize: 17,
-                          ),
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  Expanded(
+                    child: MaterialButton(
+                      height: double.infinity,
+                      minWidth: double.infinity,
+                      color: isActive == true ? green : Color(0xFFedf2f8),
+                      textColor: black,
+                      child: const Text(
+                        "Inactive Items",
+                        style: TextStyle(
+                          fontFamily: "Allerta",
+                          fontSize: 17,
                         ),
-                        onPressed: () {
-                          setState(() {
-                            isActive = true;
-                          });
-                        },
-                        splashColor: read,
                       ),
+                      onPressed: () {
+                        setState(() {
+                          isActive = true;
+                        });
+                      },
+                      splashColor: read,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),

@@ -4,6 +4,7 @@ import 'package:anun_partner/Constant/custom_color.dart';
 import 'package:anun_partner/Constant/reusable_textfield.dart';
 import 'package:anun_partner/CustomWidgets/custom_drawer.dart';
 import 'package:anun_partner/CustomWidgets/custom_widgets.dart';
+import 'package:anun_partner/screen/deliveredScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
@@ -253,7 +254,9 @@ class _OrderReadyState extends State<OrderReady>
                       fontSize: 17,
                     ),
                   ),
-                  onPressed: () => {},
+                  onPressed: () => {
+                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>DeliverdScreen())),
+                  },
                   splashColor: read,
                 ),
                 const SizedBox(

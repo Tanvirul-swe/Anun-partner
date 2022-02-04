@@ -101,6 +101,7 @@ class _AllOrderState extends State<AllOrder>
                           fontFamily: 'Allerta',
                         ),
                       ),
+
                       Row(
                         children: [
                           Radio<SingingCharacter>(
@@ -185,20 +186,27 @@ class _AllOrderState extends State<AllOrder>
                       ),
                     ],
                   ),
+
+
+
                 ],
               ),
               actions: [
                 TextButton(
                   onPressed: () {
-                    setState(() {});
+                    setState(() {
+                      Navigator.pop(context);
+                    });
                   },
-                  child: Text("Cancel"),
+                  child: const Text("Cancel"),
                 ),
                 TextButton(
                   onPressed: () {
-                    setState(() {});
+                    setState(() {
+                      Navigator.pop(context);
+                    });
                   },
-                  child: Text("OK"),
+                  child: const Text("OK"),
                 ),
               ],
             );
@@ -261,7 +269,9 @@ class _AllOrderState extends State<AllOrder>
                     children: [
                       TextButton(
                         onPressed: () {
-                          setState(() {});
+                          setState(() {
+                            Navigator.pop(context);
+                          });
                         },
                         child: Text("Cancel"),
                       ),
@@ -269,11 +279,11 @@ class _AllOrderState extends State<AllOrder>
                         onPressed: () {
                           setState(() {
                             Navigator.pop(context);
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (context) =>
-                            //             const DeliverdScreen()));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const OrderReady()));
                           });
                         },
                         child: Text("OK"),
@@ -304,58 +314,56 @@ class _AllOrderState extends State<AllOrder>
             child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Center(
-            child: Expanded(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: MaterialButton(
-                      height: double.infinity,
-                      minWidth: double.infinity,
-                      color: check == false ? green : Color(0xFFedf2f8),
-                      textColor: black,
-                      child: const Text(
-                        "Incoming(3)",
-                        style: TextStyle(
-                          fontFamily: "Allerta",
-                          fontSize: 17,
-                        ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: MaterialButton(
+                    height: double.infinity,
+                    minWidth: double.infinity,
+                    color: check == false ? green : Color(0xFFedf2f8),
+                    textColor: black,
+                    child: const Text(
+                      "Incoming(3)",
+                      style: TextStyle(
+                        fontFamily: "Allerta",
+                        fontSize: 17,
                       ),
-                      onPressed: () {
-                        setState(() {
-                          check = false;
-                        });
-                      },
-                      splashColor: read,
                     ),
+                    onPressed: () {
+                      setState(() {
+                        check = false;
+                      });
+                    },
+                    splashColor: read,
                   ),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  Expanded(
-                    child: MaterialButton(
-                      height: double.infinity,
-                      minWidth: double.infinity,
-                      color: check == true ? green : Color(0xFFedf2f8),
-                      textColor: black,
-                      child: const Text(
-                        "Ongoing(6)",
-                        style: TextStyle(
-                          fontFamily: "Allerta",
-                          fontSize: 17,
-                        ),
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                Expanded(
+                  child: MaterialButton(
+                    height: double.infinity,
+                    minWidth: double.infinity,
+                    color: check == true ? green : Color(0xFFedf2f8),
+                    textColor: black,
+                    child: const Text(
+                      "Ongoing(6)",
+                      style: TextStyle(
+                        fontFamily: "Allerta",
+                        fontSize: 17,
                       ),
-                      onPressed: () {
-                        setState(() {
-                          check = true;
-                        });
-                      },
-                      splashColor: read,
                     ),
+                    onPressed: () {
+                      setState(() {
+                        check = true;
+                      });
+                    },
+                    splashColor: read,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         )),
@@ -675,8 +683,7 @@ class _AllOrderState extends State<AllOrder>
                                               fontFamily: 'Allerta',
                                             ),
                                             children: <TextSpan>[
-                                              TextSpan(
-                                                  text: 'Time Remain : '),
+                                              TextSpan(text: 'Time Remain : '),
                                               TextSpan(
                                                   text: '5m',
                                                   style: TextStyle(

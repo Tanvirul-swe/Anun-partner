@@ -2,6 +2,8 @@ import 'package:anun_partner/Constant/custom_color.dart';
 import 'package:anun_partner/Constant/reusable_textfield.dart';
 import 'package:anun_partner/CustomWidgets/custom_drawer.dart';
 import 'package:anun_partner/CustomWidgets/custom_widgets.dart';
+import 'package:anun_partner/screen/all_order.dart';
+import 'package:anun_partner/screen/order_ready.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
@@ -15,6 +17,46 @@ class DeliverdScreen extends StatefulWidget {
 class _DeliverdScreenState extends State<DeliverdScreen> {
   bool check = false;
   bool status = false;
+
+  ConfirmDialog(BuildContext context) async {
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            backgroundColor: Color(0xFFFFE599),
+            title: const Text(
+              'Do you want to deliver on rider?',
+              style: TextStyle(
+                fontFamily: 'Allerta',
+              ),
+            ),
+            actions: [
+              TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) => AllOrder()));
+                  },
+                  child: const Text(
+                    'Yes',
+                    style: TextStyle(color: Colors.black),
+                  )),
+              TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text(
+                    'No',
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  )),
+            ],
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> _key = GlobalKey(); // Create a key
@@ -22,80 +64,23 @@ class _DeliverdScreenState extends State<DeliverdScreen> {
     return Scaffold(
       key: _key,
       appBar: AppBar(
-        title: const Text('Delivered Order',style: TextStyle(
-          color: Colors.black,
-          fontFamily: 'Allerta',
-        ),),
-        backgroundColor: green,
-        elevation: 0,
-        leading: IconButton(onPressed: (){
-          Navigator.pop(context);
-        }, icon: Icon(Icons.arrow_back,color: Colors.black,))
-      ),
-      // appBar: AppBar(
-      //   backgroundColor: Colors.white,
-      //   elevation: 0,
-      //   automaticallyImplyLeading: false,
-      //   flexibleSpace: SafeArea(
-      //       child: Padding(
-      //         padding: const EdgeInsets.all(8.0),
-      //         child: Center(
-      //           child: Expanded(
-      //             child: Row(
-      //               mainAxisAlignment: MainAxisAlignment.center,
-      //               crossAxisAlignment: CrossAxisAlignment.center,
-      //               children: [
-      //                 Expanded(
-      //                   child: MaterialButton(
-      //                     height: double.infinity,
-      //                     minWidth: double.infinity,
-      //                     color: check == false ? green : Color(0xFFedf2f8),
-      //                     textColor: black,
-      //                     child: const Text(
-      //                       "Incoming(3)",
-      //                       style: TextStyle(
-      //                         fontFamily: "Allerta",
-      //                         fontSize: 17,
-      //                       ),
-      //                     ),
-      //                     onPressed: () {
-      //                       setState(() {
-      //                         check = false;
-      //                       });
-      //                     },
-      //                     splashColor: read,
-      //                   ),
-      //                 ),
-      //                 const SizedBox(
-      //                   width: 5,
-      //                 ),
-      //                 Expanded(
-      //                   child: MaterialButton(
-      //                     height: double.infinity,
-      //                     minWidth: double.infinity,
-      //                     color: check == true ? green : Color(0xFFedf2f8),
-      //                     textColor: black,
-      //                     child: const Text(
-      //                       "Ongoing(6)",
-      //                       style: TextStyle(
-      //                         fontFamily: "Allerta",
-      //                         fontSize: 17,
-      //                       ),
-      //                     ),
-      //                     onPressed: () {
-      //                       setState(() {
-      //                         check = true;
-      //                       });
-      //                     },
-      //                     splashColor: read,
-      //                   ),
-      //                 ),
-      //               ],
-      //             ),
-      //           ),
-      //         ),
-      //       )),
-      // ),
+          title: const Text(
+            'Delivered Order',
+            style: TextStyle(
+              color: Colors.black,
+              fontFamily: 'Allerta',
+            ),
+          ),
+          backgroundColor: green,
+          elevation: 0,
+          leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(
+                Icons.arrow_back,
+                color: Colors.black,
+              ))),
       drawer: CustomDrawer(),
       body: SingleChildScrollView(
           physics: const ScrollPhysics(),
@@ -107,8 +92,8 @@ class _DeliverdScreenState extends State<DeliverdScreen> {
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children:const [
-                           Text(
+                        children: const [
+                          Text(
                             'Order ID : 101',
                             style: TextStyle(
                               fontFamily: 'Allerta',
@@ -116,7 +101,6 @@ class _DeliverdScreenState extends State<DeliverdScreen> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-
                         ],
                       ),
                       const SizedBox(
@@ -171,12 +155,15 @@ class _DeliverdScreenState extends State<DeliverdScreen> {
                             }),
                       ),
                       const Align(
-                        alignment: Alignment.topLeft,
-                          child: Text('Special Instructions',style: TextStyle(
-                            fontFamily: 'Allerta',
-                            fontSize: 17,
-                            fontWeight: FontWeight.bold,
-                          ),)),
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            'Special Instructions',
+                            style: TextStyle(
+                              fontFamily: 'Allerta',
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          )),
                       const SizedBox(
                         height: 5,
                       ),
@@ -237,42 +224,52 @@ class _DeliverdScreenState extends State<DeliverdScreen> {
                         ),
                         child: Column(
                           children: [
-                            SizedBox(height: 10,),
-                          const CircleAvatar(
-                            radius: 40,
-                            backgroundColor: green,
-                            child: CircleAvatar(
-                              radius: 37,
-                              backgroundColor: Colors.white,
-                              backgroundImage: NetworkImage('https://www.pngarts.com/files/5/Sadio-Mane-PNG-Download-Image.png'),
-                            ),
-
-                          ),
                             SizedBox(
                               height: 10,
                             ),
-                            Text('Your Rider',style: TextStyle(
-                              fontFamily: 'Allerta',
-                              fontSize: 18,
-                            ),),
+                            const CircleAvatar(
+                              radius: 40,
+                              backgroundColor: green,
+                              child: CircleAvatar(
+                                radius: 37,
+                                backgroundColor: Colors.white,
+                                backgroundImage: NetworkImage(
+                                    'https://www.pngarts.com/files/5/Sadio-Mane-PNG-Download-Image.png'),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              'Your Rider',
+                              style: TextStyle(
+                                fontFamily: 'Allerta',
+                                fontSize: 18,
+                              ),
+                            ),
                             SizedBox(
                               height: 10,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
-                                Text('Tamal Dev',style: TextStyle(
-                                  fontFamily: 'Allerta',
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20,
-                                ),),
+                                Text(
+                                  'Tamal Dev',
+                                  style: TextStyle(
+                                    fontFamily: 'Allerta',
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20,
+                                  ),
+                                ),
                                 Icon(Icons.call),
                               ],
                             )
                           ],
                         ),
                       ),
-                      SizedBox(height: 10,),
+                      SizedBox(
+                        height: 10,
+                      ),
                       MaterialButton(
                         height: 40.0,
                         minWidth: double.infinity,
@@ -285,7 +282,9 @@ class _DeliverdScreenState extends State<DeliverdScreen> {
                             fontSize: 17,
                           ),
                         ),
-                        onPressed: () => {},
+                        onPressed: () => {
+                          ConfirmDialog(context),
+                        },
                         splashColor: read,
                       ),
                       const SizedBox(

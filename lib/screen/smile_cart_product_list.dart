@@ -24,7 +24,15 @@ class _SmileCartProductListState extends State<SmileCartProductList> {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const Text('Smile Cart',style: TextStyle(
+              fontFamily: 'Allerta',
+              fontSize: 17,
+            ),),
+            SizedBox(
+              height: 10,
+            ),
             ListView.builder(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
