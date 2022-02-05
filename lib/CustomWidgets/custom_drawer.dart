@@ -1,4 +1,5 @@
 import 'package:anun_partner/Constant/custom_color.dart';
+import 'package:anun_partner/Constant/text_design.dart';
 import 'package:anun_partner/screen/menu_management.dart';
 import 'package:anun_partner/screen/orders_list.dart';
 import 'package:anun_partner/screen/performance_report.dart';
@@ -57,7 +58,7 @@ class CustomDrawer extends StatelessWidget {
                 'Assets/Icons/performance.png',
                 width: 30,
               ),
-              title: const Text('Performance report'),
+              title: const Text('Performance report',style: ReTextStyle,),
             ),
             ListTile(
               onTap: () {
@@ -70,7 +71,7 @@ class CustomDrawer extends StatelessWidget {
                 'Assets/Icons/menucontrol.png',
                 width: 30,
               ),
-              title: const Text('Menu Control'),
+              title: const Text('Menu Control',style: ReTextStyle,),
             ),
             ListTile(
               onTap: () {
@@ -81,7 +82,7 @@ class CustomDrawer extends StatelessWidget {
                 'Assets/Icons/order.png',
                 width: 30,
               ),
-              title: const Text('Orders'),
+              title: const Text('Orders',style: ReTextStyle,),
             ),
             ListTile(
               onTap: () {},
@@ -89,7 +90,7 @@ class CustomDrawer extends StatelessWidget {
                 'Assets/Icons/tutorial.png',
                 width: 30,
               ),
-              title: const Text('Tutorial'),
+              title: const Text('Tutorial',style: ReTextStyle,),
             ),
             ListTile(
               onTap: () {
@@ -100,7 +101,7 @@ class CustomDrawer extends StatelessWidget {
                 'Assets/Icons/request.png',
                 width: 30,
               ),
-              title: const Text('Request changes'),
+              title: const Text('Request changes',style: ReTextStyle,),
             ),
             ListTile(
               onTap: () {},
@@ -108,7 +109,7 @@ class CustomDrawer extends StatelessWidget {
                 'Assets/Icons/reating.png',
                 width: 30,
               ),
-              title: const Text('Review response'),
+              title: const Text('Reviews',style: ReTextStyle,),
             ),
             ListTile(
               onTap: () {
@@ -121,7 +122,7 @@ class CustomDrawer extends StatelessWidget {
                 'Assets/Icons/coupon.png',
                 width: 30,
               ),
-              title: const Text('Redeem voucher'),
+              title: const Text('Redeem voucher',style: ReTextStyle,),
             ),
             ListTile(
               onTap: () {
@@ -134,7 +135,7 @@ class CustomDrawer extends StatelessWidget {
                 'Assets/Icons/smilecart.png',
                 width: 30,
               ),
-              title: const Text('Smile Cart'),
+              title: const Text('Smile Cart',style: ReTextStyle,),
             ),
             ListTile(
               onTap: () {},
@@ -142,7 +143,7 @@ class CustomDrawer extends StatelessWidget {
                 'Assets/Icons/chat.png',
                 width: 30,
               ),
-              title: const Text('Chat with US'),
+              title: const Text('Chat with US',style: ReTextStyle,),
             ),
           ],
         ),

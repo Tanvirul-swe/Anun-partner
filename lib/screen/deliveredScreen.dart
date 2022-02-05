@@ -290,42 +290,42 @@ class _DeliverdScreenState extends State<DeliverdScreen> {
                       const SizedBox(
                         height: 15,
                       ),
-                      Container(
-                        height: 60,
-                        color: green,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            IconButton(
-                                onPressed: () {
-                                  _key.currentState!.openDrawer();
-                                },
-                                icon: Icon(Icons.menu)),
-                            status == true
-                                ? const Text(
-                                    'You are Online',
-                                    style: Ktextstyle,
-                                  )
-                                : const Text('You are Offline',
-                                    style: Ktextstyle),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 8),
-                              child: FlutterSwitch(
-                                width: 55.0,
-                                height: 25.0,
-                                valueFontSize: 12.0,
-                                toggleSize: 18.0,
-                                value: status,
-                                onToggle: (val) {
-                                  setState(() {
-                                    status = val;
-                                  });
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+                      // Container(
+                      //   height: 60,
+                      //   color: green,
+                      //   child: Row(
+                      //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      //     children: [
+                      //       IconButton(
+                      //           onPressed: () {
+                      //             _key.currentState!.openDrawer();
+                      //           },
+                      //           icon: Icon(Icons.menu)),
+                      //       status == true
+                      //           ? const Text(
+                      //               'You are Online',
+                      //               style: Ktextstyle,
+                      //             )
+                      //           : const Text('You are Offline',
+                      //               style: Ktextstyle),
+                      //       Padding(
+                      //         padding: const EdgeInsets.only(right: 8),
+                      //         child: FlutterSwitch(
+                      //           width: 55.0,
+                      //           height: 25.0,
+                      //           valueFontSize: 12.0,
+                      //           toggleSize: 18.0,
+                      //           value: status,
+                      //           onToggle: (val) {
+                      //             setState(() {
+                      //               status = val;
+                      //             });
+                      //           },
+                      //         ),
+                      //       ),
+                      //     ],
+                      //   ),
+                      // ),
                     ],
                   )
                 : Container(

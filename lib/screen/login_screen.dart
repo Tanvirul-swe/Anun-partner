@@ -41,7 +41,7 @@ class _LoginState extends State<Login> {
                         },
                       ),
                       const Text(
-                        'Bangladesh',
+                        'Bangladesh - Anun',
                         style: TextStyle(
                           fontFamily: 'Allerta',
                         ),
@@ -61,7 +61,7 @@ class _LoginState extends State<Login> {
                         },
                       ),
                       const Text(
-                        'Indonesia',
+                        'Indonesia - Ambil',
                         style: TextStyle(
                           fontFamily: 'Allerta',
                         ),
@@ -124,8 +124,8 @@ class _LoginState extends State<Login> {
                 },
                 controller: TextEditingController(
                     text: _character == SingingCharacter.lafayette
-                        ? "Bangladesh"
-                        : 'Indonesia'),
+                        ? "Bangladesh - Anun"
+                        : 'Indonesia - Ambil'),
                 decoration: CountryTextFieldDecoration,
               ),
               const SizedBox(

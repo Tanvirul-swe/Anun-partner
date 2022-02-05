@@ -1,4 +1,5 @@
 import 'package:anun_partner/Constant/custom_color.dart';
+import 'package:anun_partner/Constant/text_design.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -11,10 +12,16 @@ class PerformanceReport extends StatefulWidget {
 }
 
 class _PerformanceReportState extends State<PerformanceReport> {
-  TooltipBehavior? _tooltipBehavior;
+  TooltipBehavior? _salesToolTipBehavior;
+  TooltipBehavior? _valueToolTipBehavior;
+  TooltipBehavior? _topToolTipBehavior;
+  TooltipBehavior? _bagSizeToolTipBehavior;
   @override
   void initState() {
-    _tooltipBehavior = TooltipBehavior(enable: true);
+    _salesToolTipBehavior = TooltipBehavior(enable: true);
+    _valueToolTipBehavior = TooltipBehavior(enable: true);
+    _topToolTipBehavior = TooltipBehavior(enable: true);
+    _bagSizeToolTipBehavior = TooltipBehavior(enable: true);
     super.initState();
   }
 
@@ -41,10 +48,7 @@ class _PerformanceReportState extends State<PerformanceReport> {
           backgroundColor: green,
           title: const Text(
             'Performance Report',
-            style: TextStyle(
-              color: Colors.black,
-              fontFamily: 'Allerta',
-            ),
+            style: ReTextStyle,
           ),
         ),
         body: SingleChildScrollView(
@@ -61,22 +65,24 @@ class _PerformanceReportState extends State<PerformanceReport> {
                         height: 50,
                         color: Color(0xFFD8D8D8),
                         child: Center(
-                          child: RichText(
-                            text: const TextSpan(
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontFamily: 'Allerta',
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: const [
+                              Text(
+                                'Satisfaction',
+                                style: TextStyle(
+                                  fontFamily: 'Allerta',
+                                  fontSize: 15,
+                                ),
                               ),
-                              children: <TextSpan>[
-                                TextSpan(text: 'Satisfaction'),
-                                TextSpan(
-                                    text: '\n3.5',
-                                    style: TextStyle(
-                                        fontSize: 17,
-                                        fontFamily: 'Allerta',
-                                        fontWeight: FontWeight.bold)),
-                              ],
-                            ),
+                              Text(
+                                '4.5',
+                                style: TextStyle(
+                                    fontSize: 17,
+                                    fontFamily: 'Allerta',
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -90,22 +96,24 @@ class _PerformanceReportState extends State<PerformanceReport> {
                         height: 50,
                         color: Color(0xFFF7CAAC),
                         child: Center(
-                          child: RichText(
-                            text: const TextSpan(
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontFamily: 'Allerta',
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: const [
+                              Text(
+                                'Added into bag',
+                                style: TextStyle(
+                                  fontFamily: 'Allerta',
+                                  fontSize: 15,
+                                ),
                               ),
-                              children: <TextSpan>[
-                                TextSpan(text: 'Added into bag'),
-                                TextSpan(
-                                    text: '\n15',
-                                    style: TextStyle(
-                                        fontFamily: 'Allerta',
-                                        fontSize: 17,
-                                        fontWeight: FontWeight.bold)),
-                              ],
-                            ),
+                              Text(
+                                '15',
+                                style: TextStyle(
+                                    fontSize: 17,
+                                    fontFamily: 'Allerta',
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -120,22 +128,24 @@ class _PerformanceReportState extends State<PerformanceReport> {
                   height: 50,
                   color: green,
                   child: Center(
-                    child: RichText(
-                      text: const TextSpan(
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontFamily: 'Allerta',
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Text(
+                          'Viewed store',
+                          style: TextStyle(
+                            fontFamily: 'Allerta',
+                            fontSize: 15,
+                          ),
                         ),
-                        children: <TextSpan>[
-                          TextSpan(text: 'Viewed store'),
-                          TextSpan(
-                              text: '\n450',
-                              style: TextStyle(
-                                  fontSize: 17,
-                                  fontFamily: 'Allerta',
-                                  fontWeight: FontWeight.bold)),
-                        ],
-                      ),
+                        Text(
+                          '150',
+                          style: TextStyle(
+                              fontSize: 17,
+                              fontFamily: 'Allerta',
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -147,7 +157,7 @@ class _PerformanceReportState extends State<PerformanceReport> {
                   // Enable legend
                   // legend: Legend(isVisible: true),
                   // Enable tooltip
-                  tooltipBehavior: _tooltipBehavior,
+                  tooltipBehavior: _salesToolTipBehavior,
                   series: <LineSeries<SalesData, String>>[
                     LineSeries<SalesData, String>(
                         dataSource: <SalesData>[
@@ -175,7 +185,7 @@ class _PerformanceReportState extends State<PerformanceReport> {
                   // Enable legend
                   // legend: Legend(isVisible: true),
                   // Enable tooltip
-                  tooltipBehavior: _tooltipBehavior,
+                  tooltipBehavior: _valueToolTipBehavior,
                   series: <LineSeries<SalesData, String>>[
                     LineSeries<SalesData, String>(
                         dataSource: <SalesData>[
@@ -201,7 +211,7 @@ class _PerformanceReportState extends State<PerformanceReport> {
                   legend: Legend(
                     isVisible: true,
                   ),
-                  tooltipBehavior: _tooltipBehavior,
+                  tooltipBehavior: _topToolTipBehavior,
                   series: <CircularSeries>[
                     // Render pie chart
                     PieSeries<ChartData, String>(
@@ -213,7 +223,7 @@ class _PerformanceReportState extends State<PerformanceReport> {
                   ]),
               SfCartesianChart(
                   title: ChartTitle(text: 'Bag Size'),
-                  tooltipBehavior: _tooltipBehavior,
+                  tooltipBehavior: _bagSizeToolTipBehavior,
                   series: <ChartSeries>[
                     HistogramSeries<Historical, num>(
                         dataSource: _historicalchart,

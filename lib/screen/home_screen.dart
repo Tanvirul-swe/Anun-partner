@@ -34,15 +34,32 @@ class _HomeState extends State<Home> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Container(
+                  height: 100,
+                  width: 100,
+                  decoration: const BoxDecoration(
+                    color: green,
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Center(
+                    child: Text(
+                      '3',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontFamily: 'Allerta',
+                          fontSize: 50),
+                    ),
+                  ),
+                ),
                 Text(
-                  'New Order Alart',
+                  'New Orders',
                   style: Ktextstyle.copyWith(color: Colors.green),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 const Text(
-                  'You have new order tap screen anywhere',
+                  'Tap anywhere to view',
                   style: TextStyle(
                     fontFamily: 'Allerta',
                   ),

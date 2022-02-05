@@ -1,5 +1,6 @@
 import 'package:anun_partner/Constant/custom_color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 
 enum SingingCharacter { lafayette, jefferson }
 
@@ -73,7 +74,6 @@ class _MenuManagementState extends State<MenuManagement> {
                           fontFamily: 'Allerta',
                         ),
                       ),
-
                     ],
                   ),
                   Row(
@@ -87,9 +87,7 @@ class _MenuManagementState extends State<MenuManagement> {
                       ),
                       TextButton(
                         onPressed: () {
-                          setState(() {
-
-                          });
+                          setState(() {});
                         },
                         child: Text("OK"),
                       ),
@@ -108,120 +106,261 @@ class _MenuManagementState extends State<MenuManagement> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        iconTheme: const IconThemeData(color: Colors.black),
+        backgroundColor: green,
         elevation: 0,
-        automaticallyImplyLeading: false,
-        flexibleSpace: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Center(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
+        centerTitle: true,
+        title: status == true
+            ? const Text(
+                'Your are online',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontFamily: 'Allerta',
+                ),
+              )
+            : const Text(
+                'You are Offline',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontFamily: 'Allerta',
+                ),
+              ),
+      ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.white,
+      //   elevation: 0,
+      //   automaticallyImplyLeading: false,
+      //   flexibleSpace: SafeArea(
+      //     child: Padding(
+      //       padding: const EdgeInsets.all(8.0),
+      //       child: Center(
+      //         child: Row(
+      //           mainAxisAlignment: MainAxisAlignment.center,
+      //           crossAxisAlignment: CrossAxisAlignment.center,
+      //           children: [
+      //             Expanded(
+      //               child: MaterialButton(
+      //                 height: double.infinity,
+      //                 minWidth: double.infinity,
+      //                 color: isActive == false ? green : Color(0xFFedf2f8),
+      //                 textColor: black,
+      //                 child: const Text(
+      //                   "Active Items",
+      //                   style: TextStyle(
+      //                     fontFamily: "Allerta",
+      //                     fontSize: 17,
+      //                   ),
+      //                 ),
+      //                 onPressed: () {
+      //                   setState(() {
+      //                     isActive = false;
+      //                   });
+      //                 },
+      //                 splashColor: read,
+      //               ),
+      //             ),
+      //             const SizedBox(
+      //               width: 5,
+      //             ),
+      //             Expanded(
+      //               child: MaterialButton(
+      //                 height: double.infinity,
+      //                 minWidth: double.infinity,
+      //                 color: isActive == true ? green : Color(0xFFedf2f8),
+      //                 textColor: black,
+      //                 child: const Text(
+      //                   "Inactive Items",
+      //                   style: TextStyle(
+      //                     fontFamily: "Allerta",
+      //                     fontSize: 17,
+      //                   ),
+      //                 ),
+      //                 onPressed: () {
+      //                   setState(() {
+      //                     isActive = true;
+      //                   });
+      //                 },
+      //                 splashColor: read,
+      //               ),
+      //             ),
+      //           ],
+      //         ),
+      //       ),
+      //     ),
+      //   ),
+      // ),
+      body: isActive == false
+          ? SingleChildScrollView(
+              child: Column(
                 children: [
-                  Expanded(
-                    child: MaterialButton(
-                      height: double.infinity,
-                      minWidth: double.infinity,
-                      color: isActive == false ? green : Color(0xFFedf2f8),
-                      textColor: black,
-                      child: const Text(
-                        "Active Items",
-                        style: TextStyle(
-                          fontFamily: "Allerta",
-                          fontSize: 17,
+                  Row(
+                    // mainAxisAlignment: MainAxisAlignment.center,
+                    // crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Flexible(
+                        flex: 1,
+                        child: MaterialButton(
+                          height: 40,
+                          minWidth: double.infinity,
+                          color: isActive == false ? green : Color(0xFFedf2f8),
+                          textColor: black,
+                          child: const Text(
+                            "Active Items",
+                            style: TextStyle(
+                              fontFamily: "Allerta",
+                              fontSize: 17,
+                            ),
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              isActive = false;
+                            });
+                          },
+                          splashColor: read,
                         ),
                       ),
-                      onPressed: () {
-                        setState(() {
-                          isActive = false;
-                        });
-                      },
-                      splashColor: read,
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  Expanded(
-                    child: MaterialButton(
-                      height: double.infinity,
-                      minWidth: double.infinity,
-                      color: isActive == true ? green : Color(0xFFedf2f8),
-                      textColor: black,
-                      child: const Text(
-                        "Inactive Items",
-                        style: TextStyle(
-                          fontFamily: "Allerta",
-                          fontSize: 17,
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      Flexible(
+                        flex: 1,
+                        child: MaterialButton(
+                          height: 40,
+                          minWidth: double.infinity,
+                          color: isActive == true ? green : Color(0xFFedf2f8),
+                          textColor: black,
+                          child: const Text(
+                            "Inactive Items",
+                            style: TextStyle(
+                              fontFamily: "Allerta",
+                              fontSize: 17,
+                            ),
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              isActive = true;
+                            });
+                          },
+                          splashColor: read,
                         ),
                       ),
-                      onPressed: () {
-                        setState(() {
-                          isActive = true;
-                        });
-                      },
-                      splashColor: read,
-                    ),
+                    ],
+                  ),
+                  ListView.separated(
+                    itemCount: 10,
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemBuilder: (BuildContext context, int index) {
+                      return ListTile(
+                          leading: Image.asset('Assets/burger.jpg'),
+                          title: Text('Chicken Burger'),
+                          subtitle: Text('350 TK'),
+                          trailing: Switch(
+                            value: isActiveSwitched,
+                            activeColor: green,
+                            activeTrackColor: Colors.black,
+                            onChanged: (value) {
+                              setState(() {
+                                isActiveSwitched = value;
+                              });
+                            },
+                          ));
+                    },
+                    separatorBuilder: (BuildContext context, int index) {
+                      return const Divider(
+                        height: 5,
+                        color: green,
+                      );
+                    },
+                  )
+                ],
+              ),
+            )
+          : SingleChildScrollView(
+            child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Flexible(
+                        flex: 1,
+                        child: MaterialButton(
+                          height: 40,
+                          minWidth: double.infinity,
+                          color: isActive == false ? green : Color(0xFFedf2f8),
+                          textColor: black,
+                          child: const Text(
+                            "Active Items",
+                            style: TextStyle(
+                              fontFamily: "Allerta",
+                              fontSize: 17,
+                            ),
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              isActive = false;
+                            });
+                          },
+                          splashColor: read,
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      Flexible(
+                        flex: 1,
+                        child: MaterialButton(
+                          height: 40,
+                          minWidth: double.infinity,
+                          color: isActive == true ? green : Color(0xFFedf2f8),
+                          textColor: black,
+                          child: const Text(
+                            "Inactive Items",
+                            style: TextStyle(
+                              fontFamily: "Allerta",
+                              fontSize: 17,
+                            ),
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              isActive = true;
+                            });
+                          },
+                          splashColor: read,
+                        ),
+                      ),
+                    ],
+                  ),
+                  ListView.separated(
+                    itemCount: 10,
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemBuilder: (BuildContext context, int index) {
+                      return ListTile(
+                          leading: Image.asset('Assets/burger.jpg'),
+                          title: Text('Chicken Burger'),
+                          subtitle: Text('350 TK'),
+                          trailing: Switch(
+                            value: isInavtiveSwitch,
+                            activeColor: green,
+                            activeTrackColor: Colors.black,
+                            onChanged: (value) {
+                              setState(() {
+                                dialog(context);
+                                isInavtiveSwitch = value;
+                              });
+                            },
+                          ));
+                    },
+                    separatorBuilder: (BuildContext context, int index) {
+                      return const Divider(
+                        height: 5,
+                        color: green,
+                      );
+                    },
                   ),
                 ],
               ),
-            ),
           ),
-        ),
-      ),
-      body: isActive == false
-          ? ListView.separated(
-              itemCount: 10,
-              itemBuilder: (BuildContext context, int index) {
-                return ListTile(
-                    leading: Image.asset('Assets/burger.jpg'),
-                    title: Text('Chicken Burger'),
-                    subtitle: Text('350 TK'),
-                    trailing: Switch(
-                      value: isActiveSwitched,
-                      activeColor: Colors.pink,
-                      activeTrackColor: green,
-                      onChanged: (value) {
-                        setState(() {
-                          isActiveSwitched = value;
-                        });
-                      },
-                    ));
-              },
-              separatorBuilder: (BuildContext context, int index) {
-                return const Divider(
-                  height: 5,
-                  color: green,
-                );
-              },
-            )
-          : ListView.separated(
-              itemCount: 10,
-              itemBuilder: (BuildContext context, int index) {
-                return ListTile(
-                    leading: Image.asset('Assets/burger.jpg'),
-                    title: Text('Chicken Burger'),
-                    subtitle: Text('350 TK'),
-                    trailing: Switch(
-                      value: isInavtiveSwitch,
-                      activeColor: Colors.pink,
-                      activeTrackColor: green,
-                      onChanged: (value) {
-                        setState(() {
-                          dialog(context);
-                          isInavtiveSwitch = value;
-                        });
-                      },
-                    ));
-              },
-              separatorBuilder: (BuildContext context, int index) {
-                return const Divider(
-                  height: 5,
-                  color: green,
-                );
-              },
-            ),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:anun_partner/Constant/custom_color.dart';
+import 'package:anun_partner/Constant/text_design.dart';
 import 'package:flutter/material.dart';
 
 class SmileCartProductList extends StatefulWidget {
@@ -17,69 +18,119 @@ class _SmileCartProductListState extends State<SmileCartProductList> {
         backgroundColor: green,
         iconTheme: const IconThemeData(color: Colors.black),
         title:const Text(
-          'Smile Product list',
+          'Smile Cart',
           style: TextStyle(color: Colors.black, fontFamily: 'Allerta'),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
+      body:SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Smile Cart',style: TextStyle(
-              fontFamily: 'Allerta',
-              fontSize: 17,
-            ),),
             SizedBox(
-              height: 10,
+              height: 5,
+            ),
+            Row(
+              children: [
+                SizedBox(
+                  width: 5,
+                ),
+                Flexible(
+                  flex: 1,
+                  child: Container(
+                    child: const Center(
+                        child: Text(
+                          'Quantity',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: 'Allerta',
+                              fontSize: 20),
+                        )),
+                    height: 50,
+                    color: green,
+                  ),
+                ),
+                SizedBox(
+                  width: 5,
+                ),
+                Flexible(
+                  flex: 2,
+                  child: Container(
+                    height: 50,
+                    color: green,
+                    child: const Center(
+                        child: Text(
+                          'Product Information',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: 'Allerta',
+                              fontSize: 20),
+                        )),
+                  ),
+                ),
+                SizedBox(
+                  width: 5,
+                ),
+              ],
             ),
             ListView.builder(
+                itemCount: 100,
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                itemCount: 5,
                 itemBuilder: (BuildContext context, int index) {
-                  return Row(
+                  return Column(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 8),
-                        child: Container(
-                          height: 25,
-                          width: 75,
-                          child: const Center(
-                            child: Text(
-                              '3X',
-                              style: TextStyle(
-                                  fontFamily: 'Allerta',
-                                  color: Colors.black,
-                                  fontSize: 17),
+                      SizedBox(height: 5,),
+                      Row(
+                        children: [
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Flexible(
+                            flex: 1,
+                            child: Container(
+                              child: const Center(
+                                  child: Text(
+                                    '3X',
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontFamily: 'Allerta',
+                                        fontSize: 16),
+                                  )),
+                              height: 50,
+                              color: Color(0xFFCDD4EA),
                             ),
                           ),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Colors.white,
-                            boxShadow: const [
-                              BoxShadow(
-                                  color: Colors.green, spreadRadius: 1),
-                            ],
+                          SizedBox(
+                            width: 5,
                           ),
-                        ),
+                          Flexible(
+                            flex: 2,
+                            child: Container(
+                              height: 50,
+                              color: Color(0xFFCDD4EA),
+                              child: const Center(
+                                  child: Text(
+                                    'Chicken burger',
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontFamily: 'Allerta',
+                                        fontSize: 16),
+                                  )),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                        ],
                       ),
-                      const SizedBox(
-                        width: 50,
-                      ),
-                      const Text(
-                        'Chicken burger',
-                        style: TextStyle(
-                          fontFamily: 'Allerta',
-                          fontSize: 17,
-                        ),
-                      ),
+                      SizedBox(
+                        height: 5,
+                      )
                     ],
                   );
-                }),
+                })
           ],
         ),
-      )
+      ),
     );
   }
 }
