@@ -1,6 +1,7 @@
 import 'package:anun_partner/Constant/custom_color.dart';
 import 'package:anun_partner/Constant/reusable_textfield.dart';
 import 'package:anun_partner/screen/home_screen.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 enum SingingCharacter { lafayette, jefferson }
@@ -108,6 +109,7 @@ class _LoginState extends State<Login> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
+          // Text(LocaleKeys.hi_text.tr()),
           Image.asset(
             'Assets/logo.png',
             width: 100,

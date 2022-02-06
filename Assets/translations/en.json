@@ -1,0 +1,71 @@
+{
+  "username": "ইউজারনেইম",
+  "password": "পাসওয়ার্ড",
+  "SignIn": "সাইন ইন করুন",
+  "NewOrder": "নতুন অর্ডার",
+  "TapAnywhere": "অর্ডার দেখতে যেকোন স্থানে স্পর্শ করুন",
+  "offline": "আপনি অফলাইনে আছেন",
+  "online": "আপনি অনলাইনে আছেন",
+  "incoming": "নতুন অর্ডার",
+  "ongoing": "চলমান অর্ডার",
+  "orderid": "অর্ডার নং",
+  "reject": "বাতিল",
+  "specialinstruction": "বিশেষ নির্দেশনা",
+  "total": "সর্বমোট",
+  "auto_reject_will_be_within": "স্বয়ংক্রিয় বাতিল হবে",
+  "minutes": "মিনিট",
+  "seconds": "সেকেন্ড",
+  "accept_order": "অর্ডার গ্রহণ করুন",
+  "required_preparing_time": "তৈরীর জন্য প্রয়োজনীয় সময়",
+  "selected_time": "নির্ধারিত সময়",
+  "ok": "ঠিক আছে",
+  "chancel": "বাতিল করুন",
+  "yes": "হ্যা",
+  "no": "না",
+  "preparing_time_left": "তৈরীর জন্য সময় বাকি আছে",
+  "order_ready": "অর্ডারটি প্রস্তুত",
+  "order_delivery": "অর্ডার ডেলিভারি",
+  "assigned_rider": "আপনার জন্য রাইডার",
+  "delivery_rider": "রাইডারকে দেওয়া হয়েছে",
+  "do_you_want_to_delivered_to_the_rider": "আপনি কি রাইডারকে পন্য হস্তান্তর করতে চান?",
+  "performance_report": "পারফরম্যান্স রিপোর্ট",
+  "satisfaction": "সন্তোষ হার",
+  "added_into_smile_cart": "স্মাইল কার্টে রয়েছে",
+  "store_viewed": "স্টোর দেখা হয়েছে",
+  "yearly_sales": "বাৎসরিক বিক্রয়",
+  "yearly_order_value": "বাৎসরিক অর্ডার",
+  "top5_selling_items": "সেরা ৫টি বিক্রিত পণ্য",
+  "bag_size": "ব্যাগের আকার",
+  "bag_hour": "ব্যস্ত সময়",
+  "menue_control": "মেন্যু কন্ট্রোল",
+  "active_items": "সক্রিয় আইটেমসমূহ",
+  "inactive_items": "নিষ্ক্রিয় আইটেমসমূহ",
+  "select_inactive_duration": "নিষ্ক্রিয়তার সময়কাল নির্ধারণ করুন",
+  "permanently": "স্থায়ীভাবে",
+  "only_for_today": "শুধু আজকের জন্য",
+  "orders": "অর্ডারসমূহ",
+  "order_id": "অর্ডার নং",
+  "order_type": "অর্ডারের ধরণ",
+  "date_time": "তারিখ ও সময়",
+  "tutorial": "টিউটোরিয়াল",
+  "request_change": "পরিবর্তনের জন্য অনুরোধ",
+  "request": "অনুরোধ",
+  "request_list": "অনুরোধসমূহ",
+  "select_category": "ক্যাটেগরী নির্বাচন করুন",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
