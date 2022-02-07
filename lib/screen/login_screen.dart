@@ -1,6 +1,7 @@
 import 'package:anun_partner/Constant/custom_color.dart';
 import 'package:anun_partner/Constant/reusable_textfield.dart';
 import 'package:anun_partner/screen/home_screen.dart';
+import 'package:anun_partner/translations/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +25,7 @@ class _LoginState extends State<Login> {
         return StatefulBuilder(
           builder: (context, setState) {
             return AlertDialog(
-              title: const Text("Select Your Country"),
+              title:  Text("Select Your Country"),
               content: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -79,7 +80,7 @@ class _LoginState extends State<Login> {
                             print(_character);
                           });
                         },
-                        child: Text("Cancel"),
+                        child: Text(LocaleKeys.chancel.tr()),
                       ),
                       TextButton(
                         onPressed: () {
@@ -88,7 +89,7 @@ class _LoginState extends State<Login> {
                             print(_character);
                           });
                         },
-                        child: Text("OK"),
+                        child: Text(LocaleKeys.ok.tr()),
                       ),
                     ],
                   )
@@ -101,6 +102,7 @@ class _LoginState extends State<Login> {
     );
   }
 
+  bool check = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -109,7 +111,17 @@ class _LoginState extends State<Login> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          // Text(LocaleKeys.hi_text.tr()),
+          Text(LocaleKeys.username).tr(),
+          ElevatedButton(
+              onPressed: () async {
+                await context.setLocale(Locale('bn'));
+              },
+              child: Text('English')),
+          ElevatedButton(
+              onPressed: () async {
+                await context.setLocale(Locale('en'));
+              },
+              child: Text('English')),
           Image.asset(
             'Assets/logo.png',
             width: 100,
@@ -128,19 +140,21 @@ class _LoginState extends State<Login> {
                     text: _character == SingingCharacter.lafayette
                         ? "Bangladesh - Anun"
                         : 'Indonesia - Ambil'),
-                decoration: CountryTextFieldDecoration,
+                decoration: CountryTextFieldDecoration.copyWith(label: Text(LocaleKeys.location.tr())),
               ),
               const SizedBox(
                 height: 20,
               ),
-              const TextField(
-                decoration: UsernameTextFieldDecoration,
+              TextField(
+                decoration: UsernameTextFieldDecoration.copyWith(
+                    label: Text(LocaleKeys.username.tr())),
               ),
               const SizedBox(
                 height: 20,
               ),
-              const TextField(
-                decoration: PasswordTextFieldDecoration,
+              TextField(
+                decoration: PasswordTextFieldDecoration.copyWith(
+                    label: Text(LocaleKeys.password.tr())),
               ),
             ],
           ),
@@ -149,8 +163,8 @@ class _LoginState extends State<Login> {
             minWidth: double.infinity,
             color: green,
             textColor: black,
-            child: const Text(
-              "Sign In",
+            child: Text(
+              LocaleKeys.SignIn.tr(),
               style: TextStyle(
                 fontFamily: "Allerta",
                 fontSize: 17,

@@ -5,6 +5,8 @@ import 'package:anun_partner/Constant/reusable_textfield.dart';
 import 'package:anun_partner/CustomWidgets/custom_drawer.dart';
 import 'package:anun_partner/CustomWidgets/custom_widgets.dart';
 import 'package:anun_partner/screen/deliveredScreen.dart';
+import 'package:anun_partner/translations/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
@@ -78,8 +80,8 @@ class _OrderReadyState extends State<OrderReady>
                 Icons.arrow_back,
                 color: Colors.black,
               )),
-          title: const Text(
-            'Order Ready',
+          title: Text(
+            LocaleKeys.order_ready.tr(),
             style: TextStyle(
               color: Colors.black,
               fontFamily: 'Allerta',
@@ -96,9 +98,9 @@ class _OrderReadyState extends State<OrderReady>
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     Text(
-                      'Order ID : 101',
+                      "${LocaleKeys.order_id.tr()}: 101",
                       style: TextStyle(
                         fontFamily: 'Allerta',
                         fontSize: 17,
@@ -157,6 +159,18 @@ class _OrderReadyState extends State<OrderReady>
                         );
                       }),
                 ),
+                SizedBox(
+                  height: 5,
+                ),
+                Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      LocaleKeys.specialinstruction.tr(),
+                      style: TextStyle(fontFamily: 'Allerta', fontSize: 15),
+                    )),
+                SizedBox(
+                  height: 5,
+                ),
                 Container(
                   width: double.infinity,
                   padding: const EdgeInsets.all(15),
@@ -181,10 +195,10 @@ class _OrderReadyState extends State<OrderReady>
                 Container(
                   width: double.infinity,
                   padding: const EdgeInsets.all(10),
-                  child: const Align(
+                  child:  Align(
                     alignment: Alignment.topRight,
                     child: Text(
-                      'Total : 450 TK',
+                      "${LocaleKeys.total.tr()} : 450 TK",
                       style: TextStyle(
                         fontFamily: 'Allerta',
                         fontSize: 17,
@@ -205,10 +219,10 @@ class _OrderReadyState extends State<OrderReady>
                 Container(
                   width: double.infinity,
                   padding: const EdgeInsets.all(10),
-                  child: const Align(
+                  child:  Align(
                     alignment: Alignment.center,
                     child: Text(
-                      'Please prepare order within',
+                      LocaleKeys.preparing_time_left.tr(),
                       style: TextStyle(
                         fontFamily: 'Allerta',
                         fontSize: 17,
@@ -247,15 +261,19 @@ class _OrderReadyState extends State<OrderReady>
                   minWidth: double.infinity,
                   color: green,
                   textColor: black,
-                  child: const Text(
-                    "Order Ready",
+                  child:  Text(
+                    LocaleKeys.order_ready.tr(),
                     style: TextStyle(
                       fontFamily: "Allerta",
                       fontSize: 17,
                     ),
                   ),
                   onPressed: () => {
-                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>DeliverdScreen())),
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                DeliverdScreen())),
                   },
                   splashColor: read,
                 ),

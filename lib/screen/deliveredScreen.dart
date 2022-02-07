@@ -4,6 +4,8 @@ import 'package:anun_partner/CustomWidgets/custom_drawer.dart';
 import 'package:anun_partner/CustomWidgets/custom_widgets.dart';
 import 'package:anun_partner/screen/all_order.dart';
 import 'package:anun_partner/screen/order_ready.dart';
+import 'package:anun_partner/translations/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
@@ -24,8 +26,8 @@ class _DeliverdScreenState extends State<DeliverdScreen> {
         builder: (context) {
           return AlertDialog(
             backgroundColor: Color(0xFFFFE599),
-            title: const Text(
-              'Do you want to deliver on rider?',
+            title:  Text(
+             LocaleKeys.do_you_want_to_delivered_to_the_rider.tr(),
               style: TextStyle(
                 fontFamily: 'Allerta',
               ),
@@ -38,16 +40,16 @@ class _DeliverdScreenState extends State<DeliverdScreen> {
                         MaterialPageRoute(
                             builder: (BuildContext context) => AllOrder()));
                   },
-                  child: const Text(
-                    'Yes',
+                  child:  Text(
+                    LocaleKeys.yes.tr(),
                     style: TextStyle(color: Colors.black),
                   )),
               TextButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: const Text(
-                    'No',
+                  child:  Text(
+                     LocaleKeys.no.tr(),
                     style: TextStyle(
                       color: Colors.black,
                     ),
@@ -64,8 +66,8 @@ class _DeliverdScreenState extends State<DeliverdScreen> {
     return Scaffold(
       key: _key,
       appBar: AppBar(
-          title: const Text(
-            'Delivered Order',
+          title:const Text(
+            "Delivery",
             style: TextStyle(
               color: Colors.black,
               fontFamily: 'Allerta',
@@ -92,10 +94,10 @@ class _DeliverdScreenState extends State<DeliverdScreen> {
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
+                        children:  [
                           Text(
-                            'Order ID : 101',
-                            style: TextStyle(
+                           "${LocaleKeys.order_id.tr()} : 101",
+                            style:const TextStyle(
                               fontFamily: 'Allerta',
                               fontSize: 17,
                               fontWeight: FontWeight.bold,
@@ -154,11 +156,11 @@ class _DeliverdScreenState extends State<DeliverdScreen> {
                               );
                             }),
                       ),
-                      const Align(
+                       Align(
                           alignment: Alignment.topLeft,
                           child: Text(
-                            'Special Instructions',
-                            style: TextStyle(
+                           LocaleKeys.specialinstruction.tr(),
+                            style:const TextStyle(
                               fontFamily: 'Allerta',
                               fontSize: 17,
                               fontWeight: FontWeight.bold,
@@ -191,10 +193,10 @@ class _DeliverdScreenState extends State<DeliverdScreen> {
                       Container(
                         width: double.infinity,
                         padding: const EdgeInsets.all(10),
-                        child: const Align(
+                        child:  Align(
                           alignment: Alignment.topRight,
                           child: Text(
-                            'Total : 450 TK',
+                            "${LocaleKeys.total.tr()} : 450 TK",
                             style: TextStyle(
                               fontFamily: 'Allerta',
                               fontSize: 17,
@@ -275,8 +277,8 @@ class _DeliverdScreenState extends State<DeliverdScreen> {
                         minWidth: double.infinity,
                         color: green,
                         textColor: black,
-                        child: const Text(
-                          "Delivered to Rider",
+                        child:  Text(
+                         LocaleKeys.delivery_rider.tr(),
                           style: TextStyle(
                             fontFamily: "Allerta",
                             fontSize: 17,

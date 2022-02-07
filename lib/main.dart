@@ -1,4 +1,5 @@
 import 'package:anun_partner/screen/login_screen.dart';
+import 'package:anun_partner/translations/codegen_loader.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -7,11 +8,13 @@ Future<void> main() async {
   await EasyLocalization.ensureInitialized();
   runApp(EasyLocalization(
     supportedLocales: [
+      Locale('bn'),
       Locale('en'),
+      Locale('id'),
     ],
       fallbackLocale:Locale('en') ,
       path: 'Assets/translations',
-      // assetLoader: CodegenLoader(),
+      assetLoader: CodegenLoader(),
       child: const AppRoot()));
 }
 class AppRoot extends StatelessWidget {

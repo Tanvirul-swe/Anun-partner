@@ -1,7 +1,9 @@
 import 'package:anun_partner/Constant/custom_color.dart';
+import 'package:anun_partner/translations/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-const UsernameTextFieldDecoration = InputDecoration(
+  const UsernameTextFieldDecoration = InputDecoration(
   suffixIcon: null,
   prefixIcon: Icon(
     Icons.people_alt_outlined,
@@ -14,7 +16,7 @@ const UsernameTextFieldDecoration = InputDecoration(
     borderSide: BorderSide(color: Color(0xFFFAC245), width: 2.0),
   ),
   label: Text(
-    'Username',
+     LocaleKeys.username,
     style: TextStyle(
       color: Colors.black,
       fontFamily: 'Allerta',

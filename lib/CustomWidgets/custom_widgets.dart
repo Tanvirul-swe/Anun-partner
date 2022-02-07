@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:anun_partner/Constant/custom_color.dart';
+import 'package:anun_partner/translations/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 Duration duration = const Duration();
@@ -24,12 +26,12 @@ Widget buildTime() {
       ),
       buildTimeCard(
         time: minutes,
-        header: 'MINUTES',
+        header: LocaleKeys.minutes.tr(),
       ),
       const SizedBox(
         width: 8,
       ),
-      buildTimeCard(time: seconds, header: 'SECONDS'),
+      buildTimeCard(time: seconds, header: LocaleKeys.seconds.tr()),
     ],
   );
 }

@@ -1,6 +1,8 @@
 import 'package:anun_partner/Constant/custom_color.dart';
 import 'package:anun_partner/Constant/reusable_textfield.dart';
 import 'package:anun_partner/screen/all_order.dart';
+import 'package:anun_partner/translations/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
@@ -52,14 +54,14 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 Text(
-                  'New Orders',
+                  LocaleKeys.NewOrder.tr(),
                   style: Ktextstyle.copyWith(color: Colors.green),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                const Text(
-                  'Tap anywhere to view',
+                 Text(
+                  LocaleKeys.TapAnywhere.tr(),
                   style: TextStyle(
                     fontFamily: 'Allerta',
                   ),
@@ -75,11 +77,11 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               status == true
-                  ? const Text(
-                      'You are Online',
+                  ?  Text(
+                     LocaleKeys.online.tr(),
                       style: Ktextstyle,
                     )
-                  : const Text('You are Offline', style: Ktextstyle),
+                  :  Text(LocaleKeys.offline.tr(), style: Ktextstyle),
               FlutterSwitch(
                 width: 55.0,
                 height: 25.0,

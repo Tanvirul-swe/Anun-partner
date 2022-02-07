@@ -9,6 +9,8 @@ import 'package:anun_partner/screen/deliveredScreen.dart';
 import 'package:anun_partner/screen/ongoing_order_list.dart';
 import 'package:anun_partner/screen/order_details.dart';
 import 'package:anun_partner/screen/order_ready.dart';
+import 'package:anun_partner/translations/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_switch/flutter_switch.dart';
@@ -79,9 +81,12 @@ class _AllOrderState extends State<AllOrder>
         return StatefulBuilder(
           builder: (context, setState) {
             return AlertDialog(
-              title: const Text("Please Select rejection reason",style: TextStyle(
-                fontFamily: 'Allerta',
-              ),),
+              title: const Text(
+                "Please Select rejection reason",
+                style: TextStyle(
+                  fontFamily: 'Allerta',
+                ),
+              ),
               content: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -197,7 +202,7 @@ class _AllOrderState extends State<AllOrder>
                       Navigator.pop(context);
                     });
                   },
-                  child: const Text("Cancel"),
+                  child: Text(LocaleKeys.chancel.tr()),
                 ),
                 TextButton(
                   onPressed: () {
@@ -205,7 +210,7 @@ class _AllOrderState extends State<AllOrder>
                       Navigator.pop(context);
                     });
                   },
-                  child: const Text("OK"),
+                  child: Text(LocaleKeys.ok.tr()),
                 ),
               ],
             );
@@ -225,7 +230,10 @@ class _AllOrderState extends State<AllOrder>
         return StatefulBuilder(
           builder: (context, setState) {
             return AlertDialog(
-              title: const Text("Required Preparing Time",style: ReTextStyle,),
+              title: Text(
+                LocaleKeys.required_preparing_time.tr(),
+                style: ReTextStyle,
+              ),
               content: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -253,7 +261,10 @@ class _AllOrderState extends State<AllOrder>
                           _currentIntValue = newValue.clamp(0, 100);
                         }),
                       ),
-                      Text('Current Time: ${_currentIntValue} M',style: ReTextStyle,),
+                      Text(
+                        'Current Time: ${_currentIntValue} M',
+                        style: ReTextStyle,
+                      ),
                       IconButton(
                         icon: Icon(Icons.add),
                         onPressed: () => setState(() {
@@ -272,7 +283,7 @@ class _AllOrderState extends State<AllOrder>
                             Navigator.pop(context);
                           });
                         },
-                        child: Text("Cancel"),
+                        child: Text(LocaleKeys.chancel.tr()),
                       ),
                       TextButton(
                         onPressed: () {
@@ -284,7 +295,7 @@ class _AllOrderState extends State<AllOrder>
                                     builder: (context) => const OrderReady()));
                           });
                         },
-                        child: Text("OK"),
+                        child: Text(LocaleKeys.ok.tr()),
                       ),
                     ],
                   )
@@ -310,14 +321,20 @@ class _AllOrderState extends State<AllOrder>
         elevation: 0,
         centerTitle: true,
         title: status == true
-            ? const Text('Your are online',style: TextStyle(
-          color: Colors.black,
-          fontFamily: 'Allerta',
-        ),)
-            : const Text('You are Offline',style: TextStyle(
-          color: Colors.black,
-          fontFamily: 'Allerta',
-        ),),
+            ? Text(
+                LocaleKeys.online.tr(),
+                style: TextStyle(
+                  color: Colors.black,
+                  fontFamily: 'Allerta',
+                ),
+              )
+            : Text(
+                LocaleKeys.offline.tr(),
+                style: TextStyle(
+                  color: Colors.black,
+                  fontFamily: 'Allerta',
+                ),
+              ),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 8),
@@ -418,8 +435,8 @@ class _AllOrderState extends State<AllOrder>
                               minWidth: double.infinity,
                               color: check == false ? green : Color(0xFFedf2f8),
                               textColor: black,
-                              child: const Text(
-                                "Incoming(3)",
+                              child: Text(
+                                "${LocaleKeys.incoming.tr()}(3)",
                                 style: TextStyle(
                                   fontFamily: "Allerta",
                                   fontSize: 17,
@@ -443,8 +460,8 @@ class _AllOrderState extends State<AllOrder>
                               minWidth: double.infinity,
                               color: check == true ? green : Color(0xFFedf2f8),
                               textColor: black,
-                              child: const Text(
-                                "Ongoing(6)",
+                              child: Text(
+                                "${LocaleKeys.ongoing.tr()}(3)",
                                 style: TextStyle(
                                   fontFamily: "Allerta",
                                   fontSize: 17,
@@ -463,8 +480,8 @@ class _AllOrderState extends State<AllOrder>
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text(
-                            'Order ID : 101',
+                          Text(
+                            "${LocaleKeys.order_id.tr()}: 101",
                             style: TextStyle(
                               fontFamily: 'Allerta',
                               fontSize: 17,
@@ -479,7 +496,7 @@ class _AllOrderState extends State<AllOrder>
                                 backgroundColor:
                                     MaterialStateProperty.all(Colors.red),
                               ),
-                              child: const Text('Reject')),
+                              child: Text(LocaleKeys.reject.tr())),
                         ],
                       ),
 
@@ -531,10 +548,10 @@ class _AllOrderState extends State<AllOrder>
                               );
                             }),
                       ),
-                      const Align(
+                      Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            'Special Instruction',
+                            LocaleKeys.specialinstruction.tr(),
                             style:
                                 TextStyle(fontFamily: 'Allerta', fontSize: 15),
                           )),
@@ -565,11 +582,11 @@ class _AllOrderState extends State<AllOrder>
                       Container(
                         width: double.infinity,
                         padding: const EdgeInsets.all(10),
-                        child: const Align(
+                        child: Align(
                           alignment: Alignment.topRight,
                           child: Text(
-                            'Total : 450 TK',
-                            style: TextStyle(
+                            "${LocaleKeys.total.tr()} : 450 TK",
+                            style: const TextStyle(
                               fontFamily: 'Allerta',
                               fontSize: 17,
                             ),
@@ -589,10 +606,10 @@ class _AllOrderState extends State<AllOrder>
                       Container(
                         width: double.infinity,
                         padding: const EdgeInsets.all(10),
-                        child: const Align(
+                        child: Align(
                           alignment: Alignment.center,
                           child: Text(
-                            'Auto reject will be within',
+                            LocaleKeys.auto_reject_will_be_within.tr(),
                             style: TextStyle(
                               fontFamily: 'Allerta',
                               fontSize: 17,
@@ -631,8 +648,8 @@ class _AllOrderState extends State<AllOrder>
                         minWidth: double.infinity,
                         color: green,
                         textColor: black,
-                        child: const Text(
-                          "Accept Order",
+                        child: Text(
+                          LocaleKeys.accept_order.tr(),
                           style: TextStyle(
                             fontFamily: "Allerta",
                             fontSize: 17,
@@ -697,8 +714,8 @@ class _AllOrderState extends State<AllOrder>
                               minWidth: double.infinity,
                               color: check == false ? green : Color(0xFFedf2f8),
                               textColor: black,
-                              child: const Text(
-                                "Incoming(3)",
+                              child:  Text(
+                                "${LocaleKeys.incoming.tr()}(5)",
                                 style: TextStyle(
                                   fontFamily: "Allerta",
                                   fontSize: 17,
@@ -722,8 +739,8 @@ class _AllOrderState extends State<AllOrder>
                               minWidth: double.infinity,
                               color: check == true ? green : Color(0xFFedf2f8),
                               textColor: black,
-                              child: const Text(
-                                "Ongoing(6)",
+                              child:  Text(
+                                "${LocaleKeys.ongoing.tr()}(5)",
                                 style: TextStyle(
                                   fontFamily: "Allerta",
                                   fontSize: 17,
@@ -779,8 +796,8 @@ class _AllOrderState extends State<AllOrder>
                                                   MainAxisAlignment.center,
                                               children: [
                                                 RichText(
-                                                  text: const TextSpan(
-                                                    style: TextStyle(
+                                                  text:  TextSpan(
+                                                    style: const TextStyle(
                                                         fontSize: 14.0,
                                                         color: Colors.black,
                                                         fontFamily: 'Allerta',
@@ -788,8 +805,8 @@ class _AllOrderState extends State<AllOrder>
                                                             FontWeight.bold),
                                                     children: <TextSpan>[
                                                       TextSpan(
-                                                          text: 'Order Id : '),
-                                                      TextSpan(
+                                                          text: "${LocaleKeys.order_id.tr()}: "),
+                                                      const TextSpan(
                                                           text: 'food12',
                                                           style: TextStyle(
                                                               fontFamily:
@@ -804,8 +821,8 @@ class _AllOrderState extends State<AllOrder>
                                                   height: 4,
                                                 ),
                                                 RichText(
-                                                  text: const TextSpan(
-                                                    style: TextStyle(
+                                                  text:  TextSpan(
+                                                    style: const TextStyle(
                                                       fontSize: 14.0,
                                                       color: Colors.black,
                                                       fontWeight:
@@ -815,8 +832,8 @@ class _AllOrderState extends State<AllOrder>
                                                     children: <TextSpan>[
                                                       TextSpan(
                                                           text:
-                                                              'Order type : '),
-                                                      TextSpan(
+                                                              "${LocaleKeys.order_type.tr()} : "),
+                                                      const TextSpan(
                                                           text: 'food',
                                                           style: TextStyle(
                                                               fontFamily:
@@ -831,8 +848,8 @@ class _AllOrderState extends State<AllOrder>
                                                   height: 4,
                                                 ),
                                                 RichText(
-                                                  text: const TextSpan(
-                                                    style: TextStyle(
+                                                  text:  TextSpan(
+                                                    style: const TextStyle(
                                                       fontSize: 14.0,
                                                       color: Colors.black,
                                                       fontWeight:
@@ -842,10 +859,10 @@ class _AllOrderState extends State<AllOrder>
                                                     children: <TextSpan>[
                                                       TextSpan(
                                                           text:
-                                                              'Time Remaining : '),
+                                                              "Time Remaining : "),
                                                       TextSpan(
-                                                          text: '5m',
-                                                          style: TextStyle(
+                                                          text: "5 ${LocaleKeys.minutes.tr()}",
+                                                          style: const TextStyle(
                                                               fontFamily:
                                                                   'Allerta',
                                                               fontWeight:
@@ -867,7 +884,7 @@ class _AllOrderState extends State<AllOrder>
                                               height: 50,
                                               width: 50,
                                               child: Center(
-                                                  child: Text('Total 4500 TK')),
+                                                  child: Text("${LocaleKeys.total.tr()} 450 TK")),
                                               decoration: BoxDecoration(
                                                 borderRadius:
                                                     BorderRadius.circular(10),
