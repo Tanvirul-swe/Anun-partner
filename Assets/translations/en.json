@@ -52,20 +52,37 @@
   "request": "অনুরোধ",
   "request_list": "অনুরোধসমূহ",
   "select_category": "ক্যাটেগরী নির্বাচন করুন",
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  "describe_your_problem": "আপনার সমস্যা বর্ণনা করুন",
+  "name_correction": "নাম সংশোধন",
+  "menu_correction": "মেন্যু সংশোধন",
+  "price_correction": "দাম সংশোধন",
+  "offer_correction": "অফার সংশোধন",
+  "others": "অন্যান্য",
+  "request_id": "অনুরোধ নং",
+  "status": " সর্বশেষ অবস্থা",
+  "pending": "পেণ্ডীং",
+  "opened": "খোলা",
+  "closed": "বন্ধ",
+  "review": "রিভিউ",
+  "redeem_voucher": "ভাউচার রিদিম",
+  "check_voucher_balance": "ভাউচার ব্যালেন্স দেখুন",
+  "enter_customer_number": "কাস্টমারের মোবাইল নাম্বার",
+  "check": "চেক করুন",
+  "lets_redeem_voucher": "চলুন ভাউচার রিদিম করি",
+  "mobile_number": "কাস্টমারের মোবাইল নাম্বার",
+  "voucher_secret_code": "ভাউচারের গোপন কোড",
+  "product_price": "পণ্যের দাম",
+  "received_extra_money": "অতিরিক্ত টাকা গ্রহণ করেছেন?",
+  "enter_extra_cash_amount": "অতিরিক্ত টাকার সংখ্যা",
+  "redeem_now": "রিদিম করুন",
+  "do_you_agree_redeem_now": "আপনি কি এখন রিদিম করতে চান?",
+  "smile_cart": "স্মাইল কার্ট",
+  "quantity": "পরিমান",
+  "good_morning": "শুভ সকাল",
+  "noon": "মধ্যাহ্ন",
+  "afternoon": "অপরাহ্ন",
+  "evening": "সন্ধ্যা",
+  "night": "রাত্রি",
+  "sign_out": "সাইন আউট"
 
 }
