@@ -6,6 +6,8 @@ import 'package:anun_partner/screen/performance_report.dart';
 import 'package:anun_partner/screen/request_to_change.dart';
 import 'package:anun_partner/screen/smile_cart_product_list.dart';
 import 'package:anun_partner/screen/voucher.dart';
+import 'package:anun_partner/translations/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -58,7 +60,7 @@ class CustomDrawer extends StatelessWidget {
                 'Assets/Icons/performance.png',
                 width: 30,
               ),
-              title: const Text('Performance report',style: ReTextStyle,),
+              title:  Text(LocaleKeys.performance_report.tr(),style: ReTextStyle,),
             ),
             ListTile(
               onTap: () {
@@ -71,7 +73,7 @@ class CustomDrawer extends StatelessWidget {
                 'Assets/Icons/menucontrol.png',
                 width: 30,
               ),
-              title: const Text('Menu Control',style: ReTextStyle,),
+              title:  Text(LocaleKeys.menue_control.tr(),style: ReTextStyle,),
             ),
             ListTile(
               onTap: () {
@@ -82,7 +84,7 @@ class CustomDrawer extends StatelessWidget {
                 'Assets/Icons/order.png',
                 width: 30,
               ),
-              title: const Text('Orders',style: ReTextStyle,),
+              title:  Text(LocaleKeys.orders.tr(),style: ReTextStyle,),
             ),
             ListTile(
               onTap: () {},
@@ -90,7 +92,7 @@ class CustomDrawer extends StatelessWidget {
                 'Assets/Icons/tutorial.png',
                 width: 30,
               ),
-              title: const Text('Tutorial',style: ReTextStyle,),
+              title:  Text(LocaleKeys.tutorial.tr(),style: ReTextStyle,),
             ),
             ListTile(
               onTap: () {
@@ -101,7 +103,7 @@ class CustomDrawer extends StatelessWidget {
                 'Assets/Icons/request.png',
                 width: 30,
               ),
-              title: const Text('Request changes',style: ReTextStyle,),
+              title:  Text(LocaleKeys.request_change.tr(),style: ReTextStyle,),
             ),
             ListTile(
               onTap: () {},
@@ -109,7 +111,7 @@ class CustomDrawer extends StatelessWidget {
                 'Assets/Icons/reating.png',
                 width: 30,
               ),
-              title: const Text('Reviews',style: ReTextStyle,),
+              title:  Text(LocaleKeys.review.tr(),style: ReTextStyle,),
             ),
             ListTile(
               onTap: () {
@@ -122,7 +124,7 @@ class CustomDrawer extends StatelessWidget {
                 'Assets/Icons/coupon.png',
                 width: 30,
               ),
-              title: const Text('Redeem voucher',style: ReTextStyle,),
+              title:  Text(LocaleKeys.redeem_voucher.tr(),style: ReTextStyle,),
             ),
             ListTile(
               onTap: () {
@@ -135,7 +137,7 @@ class CustomDrawer extends StatelessWidget {
                 'Assets/Icons/smilecart.png',
                 width: 30,
               ),
-              title: const Text('Smile Cart',style: ReTextStyle,),
+              title:  Text(LocaleKeys.smile_cart.tr(),style: ReTextStyle,),
             ),
             ListTile(
               onTap: () {},

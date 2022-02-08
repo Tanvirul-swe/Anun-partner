@@ -1,4 +1,6 @@
 import 'package:anun_partner/Constant/custom_color.dart';
+import 'package:anun_partner/translations/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class OrderDetails extends StatefulWidget {
@@ -15,9 +17,9 @@ class _OrderDetailsState extends State<OrderDetails> {
       appBar: AppBar(
         backgroundColor: green,
         elevation: 0,
-        title: const Text(
-          'Orders',
-          style: TextStyle(
+        title:  Text(
+        LocaleKeys.orders.tr(),
+          style:const TextStyle(
             color: Colors.black,
             fontFamily: 'Allerta',
           ),
@@ -30,9 +32,9 @@ class _OrderDetailsState extends State<OrderDetails> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Order ID : 101',
-                style: TextStyle(
+               Text(
+               "${LocaleKeys.order_id.tr()} : food1",
+                style: const TextStyle(
                   fontFamily: 'Allerta',
                   fontSize: 17,
                   fontWeight: FontWeight.bold,
@@ -86,8 +88,8 @@ class _OrderDetailsState extends State<OrderDetails> {
                       );
                     }),
               ),
-              const Text(
-                'Special Instructions',
+               Text(
+               LocaleKeys.specialinstruction.tr() ,
                 style: TextStyle(
                   fontFamily: 'Allerta',
                   fontSize: 17,

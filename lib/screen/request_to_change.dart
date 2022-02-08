@@ -1,4 +1,6 @@
 import 'package:anun_partner/Constant/custom_color.dart';
+import 'package:anun_partner/translations/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class RequestToChange extends StatefulWidget {
@@ -17,21 +19,21 @@ class _RequestToChangeState extends State<RequestToChange> {
         appBar: AppBar(
           iconTheme: const IconThemeData(color: Colors.black),
           backgroundColor: green,
-          bottom: const TabBar(
+          bottom:  TabBar(
             indicatorColor: Colors.black,
             indicatorWeight: 3,
-            labelStyle: TextStyle(
+            labelStyle:const TextStyle(
               fontFamily: 'Allerta',
             ),
             labelColor: Colors.black,
             tabs: [
-              Tab(text: 'Request'),
-              Tab(text: 'Request List'),
+              Tab(text: LocaleKeys.request.tr()),
+              Tab(text: LocaleKeys.request_list.tr()),
             ],
           ),
-          title: const Text(
-            'Request for Change',
-            style: TextStyle(
+          title:  Text(
+           LocaleKeys.request_change.tr(),
+            style: const TextStyle(
               color: Colors.black,
               fontFamily: 'Allerta',
             ),
@@ -58,12 +60,12 @@ class RequestPage extends StatefulWidget {
 class _RequestPageState extends State<RequestPage> {
   List<DropdownMenuItem<String>> get dropdownItems {
     List<DropdownMenuItem<String>> menuItems = [
-      const DropdownMenuItem(child: Text("Name correction"), value: "name"),
-      const DropdownMenuItem(child: Text("Menu correction"), value: "menue"),
-      const DropdownMenuItem(child: Text("Price correction"), value: "price"),
-      const DropdownMenuItem(
-          child: Text("Offers correction"), value: "England"),
-      const DropdownMenuItem(child: Text("Others"), value: "othes"),
+       DropdownMenuItem(child: Text(LocaleKeys.name_correction.tr()), value: "name"),
+       DropdownMenuItem(child: Text(LocaleKeys.menu_correction.tr()), value: "menue"),
+       DropdownMenuItem(child: Text(LocaleKeys.price_correction.tr()), value: "price"),
+       DropdownMenuItem(
+          child: Text(LocaleKeys.offer_correction.tr()), value: "England"),
+       DropdownMenuItem(child: Text(LocaleKeys.others.tr()), value: "othes"),
     ];
     return menuItems;
   }
@@ -79,8 +81,8 @@ class _RequestPageState extends State<RequestPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Select Category',
+             Text(
+             LocaleKeys.select_category.tr() ,
               style: TextStyle(
                 fontFamily: 'Allerta',
               ),
@@ -111,7 +113,7 @@ class _RequestPageState extends State<RequestPage> {
             ),
             TextFormField(
               decoration: InputDecoration(
-                  hintText: 'Describe your problem',
+                  hintText: LocaleKeys.describe_your_problem.tr(),
                   filled: true,
                   fillColor: Color(0xFFF2F2F2),
                   focusedBorder: const OutlineInputBorder(
@@ -137,8 +139,8 @@ class _RequestPageState extends State<RequestPage> {
               minWidth: double.infinity,
               color: green,
               textColor: black,
-              child: const Text(
-                "Request for Change",
+              child:  Text(
+               LocaleKeys.request_change.tr(),
                 style: TextStyle(
                   fontFamily: "Allerta",
                   fontSize: 17,

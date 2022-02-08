@@ -1,5 +1,7 @@
 import 'package:anun_partner/Constant/custom_color.dart';
 import 'package:anun_partner/Constant/text_design.dart';
+import 'package:anun_partner/translations/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -46,8 +48,8 @@ class _PerformanceReportState extends State<PerformanceReport> {
           iconTheme: const IconThemeData(color: Colors.black),
           elevation: 0,
           backgroundColor: green,
-          title: const Text(
-            'Performance Report',
+          title:  Text(
+            LocaleKeys.performance_report.tr(),
             style: ReTextStyle,
           ),
         ),
@@ -67,15 +69,15 @@ class _PerformanceReportState extends State<PerformanceReport> {
                         child: Center(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
+                            children:  [
                               Text(
-                                'Satisfaction',
+                                LocaleKeys.satisfaction.tr(),
                                 style: TextStyle(
                                   fontFamily: 'Allerta',
                                   fontSize: 15,
                                 ),
                               ),
-                              Text(
+                              const Text(
                                 '4.5',
                                 style: TextStyle(
                                     fontSize: 17,
@@ -130,15 +132,15 @@ class _PerformanceReportState extends State<PerformanceReport> {
                   child: Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
+                      children:  [
                         Text(
-                          'Viewed store',
+                         LocaleKeys.store_viewed.tr(),
                           style: TextStyle(
                             fontFamily: 'Allerta',
                             fontSize: 15,
                           ),
                         ),
-                        Text(
+                       const Text(
                           '150',
                           style: TextStyle(
                               fontSize: 17,
@@ -153,7 +155,7 @@ class _PerformanceReportState extends State<PerformanceReport> {
               SfCartesianChart(
                   primaryXAxis: CategoryAxis(),
                   // Chart title
-                  title: ChartTitle(text: 'One yearly sales analysis'),
+                  title: ChartTitle(text: LocaleKeys.yearly_sales.tr()),
                   // Enable legend
                   // legend: Legend(isVisible: true),
                   // Enable tooltip
@@ -181,7 +183,7 @@ class _PerformanceReportState extends State<PerformanceReport> {
               SfCartesianChart(
                   primaryXAxis: CategoryAxis(),
                   // Chart title
-                  title: ChartTitle(text: 'One year order value analysis'),
+                  title: ChartTitle(text: LocaleKeys.yearly_order_value.tr()),
                   // Enable legend
                   // legend: Legend(isVisible: true),
                   // Enable tooltip
@@ -207,7 +209,7 @@ class _PerformanceReportState extends State<PerformanceReport> {
                         dataLabelSettings: DataLabelSettings(isVisible: true))
                   ]),
               SfCircularChart(
-                  title: ChartTitle(text: 'Top 5'),
+                  title: ChartTitle(text: LocaleKeys.top5_selling_items.tr()),
                   legend: Legend(
                     isVisible: true,
                   ),
@@ -222,7 +224,7 @@ class _PerformanceReportState extends State<PerformanceReport> {
                         dataLabelSettings: DataLabelSettings(isVisible: true))
                   ]),
               SfCartesianChart(
-                  title: ChartTitle(text: 'Bag Size'),
+                  title: ChartTitle(text: LocaleKeys.bag_size.tr()),
                   tooltipBehavior: _bagSizeToolTipBehavior,
                   series: <ChartSeries>[
                     HistogramSeries<Historical, num>(

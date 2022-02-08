@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:anun_partner/Constant/custom_color.dart';
 import 'package:anun_partner/screen/order_details.dart';
+import 'package:anun_partner/translations/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class OrderList extends StatefulWidget {
@@ -19,8 +21,8 @@ class _OrderListState extends State<OrderList> {
         elevation: 0,
         backgroundColor: green,
         iconTheme: const IconThemeData(color: Colors.black),
-        title: const Text(
-          'Orders',
+        title:  Text(
+          LocaleKeys.orders.tr(),
           style: TextStyle(
             color: Colors.black,
             fontFamily: 'Allerta',
@@ -58,15 +60,15 @@ class _OrderListState extends State<OrderList> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 RichText(
-                                  text: const TextSpan(
-                                    style: TextStyle(
+                                  text:  TextSpan(
+                                    style:const TextStyle(
                                         fontSize: 14.0,
                                         color: Colors.black,
                                         fontFamily: 'Allerta',
                                         fontWeight: FontWeight.bold),
                                     children: <TextSpan>[
-                                      TextSpan(text: 'Order Id : '),
-                                      TextSpan(
+                                      TextSpan(text: "${LocaleKeys.order_id.tr()} : "),
+                                     const TextSpan(
                                           text: 'food12',
                                           style: TextStyle(
                                               fontFamily: 'Allerta',
@@ -78,16 +80,16 @@ class _OrderListState extends State<OrderList> {
                                   height: 4,
                                 ),
                                 RichText(
-                                  text: const TextSpan(
-                                    style: TextStyle(
+                                  text:  TextSpan(
+                                    style: const TextStyle(
                                       fontSize: 14.0,
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold,
                                       fontFamily: 'Allerta',
                                     ),
                                     children: <TextSpan>[
-                                      TextSpan(text: 'Order types : '),
-                                      TextSpan(
+                                      TextSpan(text: "${LocaleKeys.order_type.tr()} : "),
+                                    const  TextSpan(
                                           text: 'food',
                                           style: TextStyle(
                                               fontFamily: 'Allerta',
@@ -99,16 +101,16 @@ class _OrderListState extends State<OrderList> {
                                   height: 4,
                                 ),
                                 RichText(
-                                  text: const TextSpan(
-                                    style: TextStyle(
+                                  text:  TextSpan(
+                                    style:const TextStyle(
                                       fontSize: 14.0,
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold,
                                       fontFamily: 'Allerta',
                                     ),
                                     children: <TextSpan>[
-                                      TextSpan(text: 'Date and time : '),
-                                      TextSpan(
+                                      TextSpan(text: "${LocaleKeys.date_time.tr()} : "),
+                                     const TextSpan(
                                           text: '12 oct,2021',
                                           style: TextStyle(
                                               fontFamily: 'Allerta',
@@ -127,7 +129,7 @@ class _OrderListState extends State<OrderList> {
                             child: Container(
                               height: 50,
                               width: 50,
-                              child: Center(child: Text('Total 4500 TK')),
+                              child: Center(child: Text("${LocaleKeys.total.tr()} 450 TK")),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 color: green,

@@ -1,4 +1,7 @@
 import 'package:anun_partner/Constant/custom_color.dart';
+import 'package:anun_partner/Constant/text_design.dart';
+import 'package:anun_partner/translations/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
@@ -31,7 +34,7 @@ class _MenuManagementState extends State<MenuManagement> {
         return StatefulBuilder(
           builder: (context, setState) {
             return AlertDialog(
-              title: const Text("Select product inactive duration"),
+              title:  Text(LocaleKeys.select_inactive_duration.tr()),
               content: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -48,8 +51,8 @@ class _MenuManagementState extends State<MenuManagement> {
                           });
                         },
                       ),
-                      const Text(
-                        'Permanently',
+                       Text(
+                       LocaleKeys.permanently.tr(),
                         style: TextStyle(
                           fontFamily: 'Allerta',
                         ),
@@ -68,8 +71,8 @@ class _MenuManagementState extends State<MenuManagement> {
                           });
                         },
                       ),
-                      const Text(
-                        'Only today',
+                       Text(
+                        LocaleKeys.only_for_today.tr(),
                         style: TextStyle(
                           fontFamily: 'Allerta',
                         ),
@@ -83,13 +86,13 @@ class _MenuManagementState extends State<MenuManagement> {
                         onPressed: () {
                           setState(() {});
                         },
-                        child: Text("Cancel"),
+                        child: Text(LocaleKeys.chancel.tr()),
                       ),
                       TextButton(
                         onPressed: () {
                           setState(() {});
                         },
-                        child: Text("OK"),
+                        child: Text(LocaleKeys.ok.tr()),
                       ),
                     ],
                   )
@@ -109,86 +112,10 @@ class _MenuManagementState extends State<MenuManagement> {
         iconTheme: const IconThemeData(color: Colors.black),
         backgroundColor: green,
         elevation: 0,
-        centerTitle: true,
-        title: status == true
-            ? const Text(
-                'Your are online',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontFamily: 'Allerta',
-                ),
-              )
-            : const Text(
-                'You are Offline',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontFamily: 'Allerta',
-                ),
-              ),
+        centerTitle: false,
+        title: Text(LocaleKeys.menue_control.tr(),style: ReTextStyle,),
       ),
-      // appBar: AppBar(
-      //   backgroundColor: Colors.white,
-      //   elevation: 0,
-      //   automaticallyImplyLeading: false,
-      //   flexibleSpace: SafeArea(
-      //     child: Padding(
-      //       padding: const EdgeInsets.all(8.0),
-      //       child: Center(
-      //         child: Row(
-      //           mainAxisAlignment: MainAxisAlignment.center,
-      //           crossAxisAlignment: CrossAxisAlignment.center,
-      //           children: [
-      //             Expanded(
-      //               child: MaterialButton(
-      //                 height: double.infinity,
-      //                 minWidth: double.infinity,
-      //                 color: isActive == false ? green : Color(0xFFedf2f8),
-      //                 textColor: black,
-      //                 child: const Text(
-      //                   "Active Items",
-      //                   style: TextStyle(
-      //                     fontFamily: "Allerta",
-      //                     fontSize: 17,
-      //                   ),
-      //                 ),
-      //                 onPressed: () {
-      //                   setState(() {
-      //                     isActive = false;
-      //                   });
-      //                 },
-      //                 splashColor: read,
-      //               ),
-      //             ),
-      //             const SizedBox(
-      //               width: 5,
-      //             ),
-      //             Expanded(
-      //               child: MaterialButton(
-      //                 height: double.infinity,
-      //                 minWidth: double.infinity,
-      //                 color: isActive == true ? green : Color(0xFFedf2f8),
-      //                 textColor: black,
-      //                 child: const Text(
-      //                   "Inactive Items",
-      //                   style: TextStyle(
-      //                     fontFamily: "Allerta",
-      //                     fontSize: 17,
-      //                   ),
-      //                 ),
-      //                 onPressed: () {
-      //                   setState(() {
-      //                     isActive = true;
-      //                   });
-      //                 },
-      //                 splashColor: read,
-      //               ),
-      //             ),
-      //           ],
-      //         ),
-      //       ),
-      //     ),
-      //   ),
-      // ),
+
       body: isActive == false
           ? SingleChildScrollView(
               child: Column(
@@ -204,8 +131,8 @@ class _MenuManagementState extends State<MenuManagement> {
                           minWidth: double.infinity,
                           color: isActive == false ? green : Color(0xFFedf2f8),
                           textColor: black,
-                          child: const Text(
-                            "Active Items",
+                          child:  Text(
+                            "${LocaleKeys.active_items.tr()}(5)",
                             style: TextStyle(
                               fontFamily: "Allerta",
                               fontSize: 17,
@@ -229,8 +156,8 @@ class _MenuManagementState extends State<MenuManagement> {
                           minWidth: double.infinity,
                           color: isActive == true ? green : Color(0xFFedf2f8),
                           textColor: black,
-                          child: const Text(
-                            "Inactive Items",
+                          child:  Text(
+                            "${LocaleKeys.inactive_items.tr()}(6)",
                             style: TextStyle(
                               fontFamily: "Allerta",
                               fontSize: 17,
@@ -288,8 +215,8 @@ class _MenuManagementState extends State<MenuManagement> {
                           minWidth: double.infinity,
                           color: isActive == false ? green : Color(0xFFedf2f8),
                           textColor: black,
-                          child: const Text(
-                            "Active Items",
+                          child:  Text(
+                            "${LocaleKeys.active_items.tr()}(6)",
                             style: TextStyle(
                               fontFamily: "Allerta",
                               fontSize: 17,
@@ -313,8 +240,8 @@ class _MenuManagementState extends State<MenuManagement> {
                           minWidth: double.infinity,
                           color: isActive == true ? green : Color(0xFFedf2f8),
                           textColor: black,
-                          child: const Text(
-                            "Inactive Items",
+                          child:  Text(
+                            "${LocaleKeys.inactive_items.tr()}(6)",
                             style: TextStyle(
                               fontFamily: "Allerta",
                               fontSize: 17,
