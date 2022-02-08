@@ -1,5 +1,7 @@
 import 'package:anun_partner/Constant/custom_color.dart';
 import 'package:anun_partner/Constant/text_design.dart';
+import 'package:anun_partner/translations/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class SmileCartProductList extends StatefulWidget {
@@ -17,8 +19,8 @@ class _SmileCartProductListState extends State<SmileCartProductList> {
         elevation: 0,
         backgroundColor: green,
         iconTheme: const IconThemeData(color: Colors.black),
-        title:const Text(
-          'Smile Cart',
+        title:Text(
+          LocaleKeys.smile_cart.tr(),
           style: TextStyle(color: Colors.black, fontFamily: 'Allerta'),
         ),
       ),
@@ -36,10 +38,10 @@ class _SmileCartProductListState extends State<SmileCartProductList> {
                 Flexible(
                   flex: 1,
                   child: Container(
-                    child: const Center(
+                    child:  Center(
                         child: Text(
-                          'Quantity',
-                          style: TextStyle(
+                         LocaleKeys.quantity.tr(),
+                          style:const TextStyle(
                               color: Colors.black,
                               fontFamily: 'Allerta',
                               fontSize: 20),
@@ -58,7 +60,7 @@ class _SmileCartProductListState extends State<SmileCartProductList> {
                     color: green,
                     child: const Center(
                         child: Text(
-                          'Product Information',
+                         "Product Information",
                           style: TextStyle(
                               color: Colors.black,
                               fontFamily: 'Allerta',

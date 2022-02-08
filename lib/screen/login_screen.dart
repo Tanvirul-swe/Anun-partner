@@ -111,18 +111,10 @@ class _LoginState extends State<Login> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Text(LocaleKeys.username).tr(),
-          ElevatedButton(
-              onPressed: () async {
-                await context.setLocale(Locale('bn'));
-              },
-              child: Text('English')),
-          ElevatedButton(
-              onPressed: () async {
-                await context.setLocale(Locale('en'));
-              },
-              child: Text('English')),
-          Image.asset(
+
+            // await context.setLocale(Locale('id'));
+
+    Image.asset(
             'Assets/logo.png',
             width: 100,
             height: 100,

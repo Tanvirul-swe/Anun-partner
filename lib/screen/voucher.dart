@@ -1,4 +1,6 @@
 import 'package:anun_partner/Constant/custom_color.dart';
+import 'package:anun_partner/translations/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_switch/flutter_switch.dart';
@@ -42,8 +44,8 @@ class _VoucherPageState extends State<VoucherPage> {
         builder: (context) {
           return AlertDialog(
             backgroundColor: Color(0xFFFFE599),
-            title: const Text(
-              'Do you agree to redeem now?',
+            title:  Text(
+              LocaleKeys.do_you_agree_redeem_now.tr(),
               style: TextStyle(
                 fontFamily: 'Allerta',
               ),
@@ -53,17 +55,17 @@ class _VoucherPageState extends State<VoucherPage> {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: const Text(
-                    'Yes',
+                  child:  Text(
+                    LocaleKeys.ok.tr(),
                     style: TextStyle(color: Colors.black),
                   )),
               TextButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: const Text(
-                    'No',
-                    style: TextStyle(
+                  child:  Text(
+                    LocaleKeys.chancel.tr(),
+                    style: const TextStyle(
                       color: Colors.black,
                     ),
                   )),
@@ -79,8 +81,8 @@ class _VoucherPageState extends State<VoucherPage> {
         elevation: 0,
         backgroundColor: green,
         iconTheme: const IconThemeData(color: Colors.black),
-        title: const Text(
-          'Redeem voucher',
+        title:  Text(
+          LocaleKeys.redeem_voucher.tr(),
           style: TextStyle(
             color: Colors.black,
             fontFamily: 'Allerta',
@@ -91,24 +93,25 @@ class _VoucherPageState extends State<VoucherPage> {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Check voucher balance',
+               Text(
+                LocaleKeys.check_voucher_balance.tr(),
                 style: TextStyle(fontFamily: 'Allerta', fontSize: 17),
               ),
               const SizedBox(
                 height: 10,
               ),
-              const TextField(
+               TextField(
                   decoration: InputDecoration(
-                hintText: 'Enter customer mobile number',
+                hintText: LocaleKeys.enter_customer_number.tr(),
                 filled: true,
                 fillColor: Color(0xFFF2F2F2),
-                focusedBorder: OutlineInputBorder(
+                focusedBorder:const OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(5)),
                   borderSide: BorderSide(width: 2, color: green),
                 ),
-                enabledBorder: OutlineInputBorder(
+                enabledBorder: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(5)),
                   borderSide: BorderSide(width: 2, color: green),
                 ),
@@ -121,8 +124,8 @@ class _VoucherPageState extends State<VoucherPage> {
                 minWidth: double.infinity,
                 color: green,
                 textColor: black,
-                child: const Text(
-                  "Check",
+                child:  Text(
+                  LocaleKeys.check.tr(),
                   style: TextStyle(
                     fontFamily: "Allerta",
                     fontSize: 17,
@@ -136,9 +139,9 @@ class _VoucherPageState extends State<VoucherPage> {
               const SizedBox(
                 height: 25,
               ),
-              const Text(
-                'Lets redeem a voucher',
-                style: TextStyle(
+               Text(
+                LocaleKeys.lets_redeem_voucher.tr(),
+                style: const TextStyle(
                   fontSize: 17,
                   fontFamily: 'Allerta',
                 ),
@@ -146,16 +149,16 @@ class _VoucherPageState extends State<VoucherPage> {
               const SizedBox(
                 height: 20,
               ),
-              const TextField(
+               TextField(
                   decoration: InputDecoration(
-                hintText: 'Mobile number',
+                hintText: LocaleKeys.mobile_number.tr(),
                 filled: true,
                 fillColor: Color(0xFFF2F2F2),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                focusedBorder: const OutlineInputBorder(
+                  borderRadius: const BorderRadius.all(Radius.circular(5)),
                   borderSide: BorderSide(width: 2, color: green),
                 ),
-                enabledBorder: OutlineInputBorder(
+                enabledBorder: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(5)),
                   borderSide: BorderSide(width: 2, color: green),
                 ),
@@ -163,16 +166,16 @@ class _VoucherPageState extends State<VoucherPage> {
               SizedBox(
                 height: 10,
               ),
-              const TextField(
+               TextField(
                   decoration: InputDecoration(
-                hintText: 'Voucher secret code',
+                hintText: LocaleKeys.voucher_secret_code.tr(),
                 filled: true,
                 fillColor: Color(0xFFF2F2F2),
-                focusedBorder: OutlineInputBorder(
+                focusedBorder: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(5)),
                   borderSide: BorderSide(width: 2, color: green),
                 ),
-                enabledBorder: OutlineInputBorder(
+                enabledBorder: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(5)),
                   borderSide: BorderSide(width: 2, color: green),
                 ),
@@ -180,16 +183,16 @@ class _VoucherPageState extends State<VoucherPage> {
               SizedBox(
                 height: 10,
               ),
-              const TextField(
+               TextField(
                   decoration: InputDecoration(
-                hintText: 'Product Price',
+                hintText: LocaleKeys.product_price.tr(),
                 filled: true,
                 fillColor: Color(0xFFF2F2F2),
-                focusedBorder: OutlineInputBorder(
+                focusedBorder: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(5)),
                   borderSide: BorderSide(width: 2, color: green),
                 ),
-                enabledBorder: OutlineInputBorder(
+                enabledBorder: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(5)),
                   borderSide: BorderSide(width: 2, color: green),
                 ),
@@ -200,9 +203,9 @@ class _VoucherPageState extends State<VoucherPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  const Text(
-                    'Received Extra cash?',
-                    style: TextStyle(
+                   Text(
+                    LocaleKeys.received_extra_money.tr(),
+                    style:const TextStyle(
                       fontFamily: 'Allerta',
                       fontSize: 17,
                     ),
@@ -225,16 +228,16 @@ class _VoucherPageState extends State<VoucherPage> {
                 height: 10,
               ),
               status == true
-                  ? const TextField(
+                  ?  TextField(
                       decoration: InputDecoration(
-                      hintText: 'Enter extra cash amount',
+                      hintText: LocaleKeys.enter_extra_cash_amount.tr(),
                       filled: true,
                       fillColor: Color(0xFFF2F2F2),
-                      focusedBorder: OutlineInputBorder(
+                      focusedBorder: const OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(5)),
                         borderSide: BorderSide(width: 2, color: green),
                       ),
-                      enabledBorder: OutlineInputBorder(
+                      enabledBorder: const OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(5)),
                         borderSide: BorderSide(width: 2, color: green),
                       ),
@@ -251,9 +254,9 @@ class _VoucherPageState extends State<VoucherPage> {
                 minWidth: double.infinity,
                 color: green,
                 textColor: black,
-                child: const Text(
-                  "Redeem Now",
-                  style: TextStyle(
+                child: Text(
+                  LocaleKeys.redeem_now.tr(),
+                  style: const TextStyle(
                     fontFamily: "Allerta",
                     fontSize: 17,
                   ),

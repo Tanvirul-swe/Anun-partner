@@ -174,9 +174,9 @@ class RequestList extends StatelessWidget {
               Flexible(
                 flex: 1,
                 child: Container(
-                  child: const Center(
+                  child:  Center(
                       child: Text(
-                    'Request ID',
+                    LocaleKeys.request_id.tr(),
                     style: TextStyle(
                         color: Colors.black,
                         fontFamily: 'Allerta',
@@ -194,9 +194,9 @@ class RequestList extends StatelessWidget {
                 child: Container(
                   height: 50,
                   color: green,
-                  child: const Center(
+                  child: Center(
                       child: Text(
-                    'Date & Time',
+                    LocaleKeys.date_time.tr(),
                     style: TextStyle(
                         color: Colors.black,
                         fontFamily: 'Allerta',
@@ -212,9 +212,9 @@ class RequestList extends StatelessWidget {
                 child: Container(
                   height: 50,
                   color: green,
-                  child: const Center(
+                  child:  Center(
                       child: Text(
-                    'Status',
+                     LocaleKeys.status.tr(),
                     style: TextStyle(
                         color: Colors.black,
                         fontFamily: 'Allerta',
@@ -281,9 +281,9 @@ class RequestList extends StatelessWidget {
                           child: Container(
                             height: 50,
                             color: Color(0xFFCDD4EA),
-                            child: const Center(
+                            child: Center(
                                 child: Text(
-                              'Pending',
+                                 LocaleKeys.pending.tr(),
                               style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: 'Allerta',
